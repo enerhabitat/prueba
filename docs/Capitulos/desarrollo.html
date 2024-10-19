@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Desarrollo y construcción – Reloj inteligente IoT basado en tecnologías abiertas para la recopilación de datos de confort térmico </title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../Capitulos/resultados.html" rel="next">
+<link href="../Capitulos/confort_termico.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Capitulos/desarrollo.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Desarrollo y construcción</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Reloj inteligente IoT basado en tecnologías abiertas para la recopilación de datos de confort térmico</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Capitulos/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Capitulos/confort_termico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Marco teórico</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Capitulos/desarrollo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Desarrollo y construcción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Capitulos/resultados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conclusiones</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Capitulos/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#metodología" id="toc-metodología" class="nav-link active" data-scroll-target="#metodología"><span class="header-section-number">3.1</span> Metodología</a></li>
+  <li><a href="#construcción-del-dispositivo" id="toc-construcción-del-dispositivo" class="nav-link" data-scroll-target="#construcción-del-dispositivo"><span class="header-section-number">3.2</span> Construcción del dispositivo</a></li>
+  <li><a href="#encuestas-e-interfaz" id="toc-encuestas-e-interfaz" class="nav-link" data-scroll-target="#encuestas-e-interfaz"><span class="header-section-number">3.3</span> Encuestas e interfaz</a></li>
+  <li><a href="#calibración" id="toc-calibración" class="nav-link" data-scroll-target="#calibración"><span class="header-section-number">3.4</span> Calibración</a></li>
+  <li><a href="#lógica-de-programación" id="toc-lógica-de-programación" class="nav-link" data-scroll-target="#lógica-de-programación"><span class="header-section-number">3.5</span> Lógica de programación</a></li>
+  <li><a href="#instrucciones-de-uso" id="toc-instrucciones-de-uso" class="nav-link" data-scroll-target="#instrucciones-de-uso"><span class="header-section-number">3.6</span> Instrucciones de uso</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Desarrollo y construcción</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>En esta sección se detalla el proceso de desarrollo y construcción del dispositivo presentado en esta tesis. Se presenta una metodología en donde se aborda una descripción general del dispositivo, la selección y justificación de los componentes a utilizar. Se aborda la etapa de diseño y construcción del dispositivo, el diseño e implementación de las encuestas a través de la interfaz gráfica. Se describe también el proceso de calibración de los sensores utilizados para garantizar precisión y mediciones fiables. Finalmente, se detalla la conexión del dispositivo a una plataforma IoT para el almacenamiento de los datos.</p>
+<section id="metodología" class="level2" data-number="3.1">
+<h2 data-number="3.1" data-anchor-id="metodología"><span class="header-section-number">3.1</span> Metodología</h2>
+<ol type="1">
+<li><strong>Descripción general del dispositivo:</strong></li>
+</ol>
+<p>El dispositivo presentado en esta tesis es un prototipo de reloj inteligente diseñado específicamente para la investigación en el ámbito del confort térmico. Este dispositivo permite la recopilación de datos fisiológicos, tales como la frecuencia cardíaca y la temperatura de la piel, variables cuya relación con el confort térmico se discutió en el capítulo anterior. Además, este dispositivo realiza encuestas periódicas simplificadas de confort térmico mediante una interfaz de usuario intuitiva, que permite responder la encuesta de forma rápida y sencilla. La recopilación de estos datos se realiza en la plataforma de IoT llamada ThingsBoard, lo que permite la creación de una base de datos de confort térmico en un bioclima cálido semihúmedo <span class="citation" data-cites="infonavit2024regiones">(<a href="#ref-infonavit2024regiones" role="doc-biblioref">Infonavit 2024</a>)</span> en Temixco, Morelos. Esta base de datos facilitará estudios para el entendimiento del confort térmico y el desarrollo de modelos de confort para este tipo de bioclima, así como de modelos de confort personalizados.</p>
+<ol start="2" type="1">
+<li><strong>Selección de componentes</strong></li>
+</ol>
+<p>Para garantizar el funcionamiento preciso y adecuado del dispositivo, es fundamental seleccionar correctamente todos los componentes. A continuación se describen los principales componentes utilizados, junto con sus características y la justificación de su elección en el proyecto. Esta justificación se basa en criterios como compatibilidad, consumo energético, precisión y capacidad de procesamiento en el caso del microcontrolador.</p>
+<p>Los componentes principales son los siguientes:</p>
+<ul>
+<li>Placa de desarrollo</li>
+<li>Pantalla</li>
+<li>Batería</li>
+<li>Sensores</li>
+</ul>
+<p><strong>Placa de desarrollo</strong></p>
+<p>La selección de la tarjeta o placa de desarrollo es una decisión crucial en el desarrollo del proyecto. Se requiere una placa de tamaño reducido que cumpla con características esenciales como conexión WiFi, velocidad de procesamiento, memoria y comunicación I2C. Además, debe tener un bajo consumo energético para garantizar el uso portátil prolongado del dispositivo.</p>
+<p>Se buscan placas compactas con conectividad inalámbrica. Opciones con microcontroladores como los de Arduino, ESP y Raspberry ofrecen estas características.</p>
+<p>Durante el proceso de selección se identifican dos placas con pantallas integradas, que aunque podrían ser útiles, no cumplen con los requisitos del proyecto. La placa LILYGO TTGO, no cuenta con tecnología táctil, lo cual limita su utilidad para realizar encuestas de confort térmico. Por otro lado, la MCU RP2040 con LCD redondo de 1.28 pulgadas, aunque cuenta con una pantalla táctil, no ofrece conectividad WiFi, un requisito esencial. Aunque estas dos placas no son tomadas en cuanta por las razones ya mencionadas, sirven como referencia para la búsqueda de otras opciones. En la tabla <a href="#tbl-placas" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-placas</span></a> se presenta una comparación de diferentes placas de desarrollo con las características requeridas.</p>
+<div id="tbl-placas" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-placas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.1: Comparación de características de conectividad y hardware en placas de desarrollo
+</figcaption>
+<div aria-describedby="tbl-placas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 5%">
+<col style="width: 10%">
+<col style="width: 30%">
+<col style="width: 12%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Placa de desarrollo</th>
+<th>Wifi</th>
+<th>Bluetooth</th>
+<th>Comunicación</th>
+<th>Cable</th>
+<th>Pines</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Arduino Nano 33 IoT</td>
+<td>si</td>
+<td>4.2</td>
+<td>SPI, I2C, I2S, UART</td>
+<td>Micro USB</td>
+<td>30 GPIOS, 8 ADC</td>
+</tr>
+<tr class="even">
+<td>Arduino nano esp32</td>
+<td>si</td>
+<td>LE</td>
+<td>UART, I2C, SPI, I2S, CAN(TWAI)</td>
+<td>USB C</td>
+<td>22 GPIOS, 8 ADC</td>
+</tr>
+<tr class="odd">
+<td>Arduino nano RP2040 connect</td>
+<td>si</td>
+<td>si</td>
+<td>STI, I2C, I2S, PIO, UART</td>
+<td>USB C</td>
+<td>30 GPIOS, 8 ADC</td>
+</tr>
+<tr class="even">
+<td>Raspberry pi pico W</td>
+<td>si</td>
+<td>5.2</td>
+<td>UART, I2C, SPI</td>
+<td>Micro USB</td>
+<td>26 GPIOS, 3 ADC</td>
+</tr>
+<tr class="odd">
+<td>ESP32 pico kit</td>
+<td>si</td>
+<td>si</td>
+<td>I2C, I2S, SPI</td>
+<td>Micro USB</td>
+<td>34 GPIOS</td>
+</tr>
+<tr class="even">
+<td>Seeed Studio XIAO ESP32C3</td>
+<td>si</td>
+<td>5</td>
+<td>1x UART, 1x IIC, 1x SPI</td>
+<td>USB C</td>
+<td>11 GPIOS, 4 ADC</td>
+</tr>
+<tr class="odd">
+<td>Seeed Studio XIAO ESP32S3</td>
+<td>si</td>
+<td>5</td>
+<td>1x UART, 1x IIC, 1x SPI</td>
+<td>USB C</td>
+<td>11 GPIOS, 9 ADC</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Si bien todas las placas presentadas son opciones viables, Seeed Studio ha desarrollado placas orientadas a aplicaciones de dispositivos portátiles. Estas placas empatan perfectamente con las necesidades del proyecto debido a su tamaño compacto, conectividad, modos de bajo consumo y la posibilidad de la integración con una pantalla táctil desarrollada por la misma marca. Para el desarrollo del proyecto, se elige la XIAO ESPE32C3 sobre la XIAO ESP32S3. Aunque la primera es menos potente, cumple con todos los requerimientos a un menor costo. No obstante, la XIAO ESP32S3 podría ser usada sin ningún problema, ofreciendo incluso aumentar considerablemente la capacidad de memoria para futuras modificaciones o mejoras en el código. La <a href="#tbl-esp" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-esp</span></a> muestra las características especificas de la placa seleccionada.</p>
+<div id="tbl-esp" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-esp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.2: Especificaciones técnicas detalladas de la placa XIAO ESP32C3
+</figcaption>
+<div aria-describedby="tbl-esp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 60%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Seeed Studio XIAO ESP32C3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Procesador</td>
+<td>ESP32-C3 32 bit<br>RISC-V<br>160 MHz</td>
+</tr>
+<tr class="even">
+<td>Conectividad</td>
+<td>2.4 GHz WiFi<br>BLE: Bluetooth 5.0, Bluetooth mesh</td>
+</tr>
+<tr class="odd">
+<td>On-chip Memory</td>
+<td>400 KB SRAM &amp; 4 MB Flash</td>
+</tr>
+<tr class="even">
+<td>Interfaz</td>
+<td>1x UART, 1x IIC, 1x SPI,<br>11x GPIO(PWM), 4x ADC, 1x Reset button, 1x Boot button</td>
+</tr>
+<tr class="odd">
+<td>Dimensiones</td>
+<td>21 x 17.8 mm</td>
+</tr>
+<tr class="even">
+<td>Características eléctricas</td>
+<td>Voltaje de entrada (Typo-C): 5 V<br>Voltaje de operación 3.3 V</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Circuit operating Voltage (ready to operate):<br>- Type-C: 5 V@19mA <br>- BAT: 3.8 V@22mA</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>corriente de carga de bateria: 350 mA/100 mA</td>
+</tr>
+<tr class="odd">
+<td>Modo de bajo consumo</td>
+<td>Modo deep-sleep: &gt; 44 µA</td>
+</tr>
+<tr class="even">
+<td>WiFi activado Consumo de energía</td>
+<td>Modo activo: &lt; 75 mA</td>
+</tr>
+<tr class="odd">
+<td>Bluetooth activado Consumo de energía</td>
+<td>Modo modem-sleep: &lt; 27 mA</td>
+</tr>
+<tr class="even">
+<td>Temperatura de trabajo</td>
+<td>-40 °C ~ 85 °C</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Pantalla</strong></p>
+<p>La elección de la pantalla debe alinearse con los criterios establecidos para la placa de desarrollo. se busca una pantalla que ademas de ser de tamaño reducido, sea compatible con la placa seleccionada. En la tabla <a href="#tbl-screen" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-screen</span></a>, se presentan las características básicas de las pantallas consideradas durante el proceso.</p>
+<div id="tbl-screen" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-screen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.3: Comparacion de pantallas compatibles con la XIAO ESP32C3
+</figcaption>
+<div aria-describedby="tbl-screen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 55%">
+<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pantalla</th>
+<th>touchscreen</th>
+<th>tecnología</th>
+<th>dimensión</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Seeed Studio Round Display for XIAO</td>
+<td>si</td>
+<td>TFT LCD</td>
+<td>1.28’’</td>
+</tr>
+<tr class="even">
+<td>Waveshare Módulo de visualización</td>
+<td>no</td>
+<td>OLED RGB</td>
+<td>1.5’’</td>
+</tr>
+<tr class="odd">
+<td>GC9A01 Pantalla</td>
+<td>no</td>
+<td>TFT LCD</td>
+<td>1.28’’</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>La pantalla seleccionada es la Seeed Studio Round Display for XIAO. Este modelo es perfectamente compatible con la placa XIAO ESP32C3, elegida previamente, gracias al enfoque de Seeed Studio para desarrollar un ecosistema orientado a aplicaciones de dispositivos portátiles. La compatibilidad entre los componentes, tecnología táctil y diseño redondo, logran que la pantalla se ajuste a las necesidades del proyecto.</p>
+<p><strong>Sensor de temperatura</strong></p>
+<p>La <a href="#tbl-temp" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-temp</span></a> muestra una comparación entre distintos sensores de temperatura que podrían ser utilizados en el proyecto, incluyendo termistores, sensores infrarrojos y un sensor de temperatura y humedad. Estos sensores se manejan en un rango de operación entre los 3.3 V y 5 V para garantizar su compatibilidad con la placa de desarrollo seleccionada.</p>
+<div id="tbl-temp" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.4: Comparación de Sensores de Temperatura por Rango Operativo y Precisión
+</figcaption>
+<div aria-describedby="tbl-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Característica</th>
+<th>Tipo de sensor</th>
+<th>Rango de temperatura</th>
+<th>Precisión</th>
+<th>Comunicación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>GY-906 (MLX90614)</strong></td>
+<td>Sensor de temperatura infrarrojo</td>
+<td>-70°C a 382.2°C</td>
+<td>±0.5°C (0°C a 50°C)</td>
+<td>I2C</td>
+</tr>
+<tr class="even">
+<td><strong>ZTP-115M</strong></td>
+<td>Sensor de temperatura infrarrojo</td>
+<td>-20°C a 100°C</td>
+<td>±1°C (32°C a 42°C)</td>
+<td>Salida analógica</td>
+</tr>
+<tr class="odd">
+<td><strong>NTC MF52AT</strong></td>
+<td>Termistor NTC</td>
+<td>-55°C a 125°C</td>
+<td>±0.2°C (dependiendo de la resistencia)</td>
+<td>Ninguna (sensor resistivo)</td>
+</tr>
+<tr class="even">
+<td><strong>BetaTherm 10K3A1</strong></td>
+<td>Termistor NTC</td>
+<td>-50°C a 150°C</td>
+<td>±0.2°C (25°C a 45°C)</td>
+<td>Ninguna (sensor resistivo)</td>
+</tr>
+<tr class="odd">
+<td><strong>AHT20</strong></td>
+<td>Sensor de temperatura y humedad digital</td>
+<td>-40°C a 85°C</td>
+<td>±0.3°C (temperatura) / ±2% HR (humedad)</td>
+<td>I2C</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Tras un análisis detallado, se selecciona el sensor GY-906 debido a su tamaño compacto, diseño adecuado y comunicación digital por I2C. Aunque el termistor NTC MF52AT ofrece una alternativa viable, se descarta por ser un sensor analógico. Dado que el dispositivo está diseñado para operar en un espacio reducido, cualquier interferencia en las conexiones internas podría afectar la precisión de los sensores analógicos. Por esta razón, se opta por el GY-906, que garantiza una transmisión de datos confiable y estable en entornos compactos.</p>
+<p><strong>Sensor de pulso cardíaco</strong></p>
+<p>Los sensores ópticos se han consolidado como una buena opción para la medición de la frecuencia cardíaca en dispositivos portátiles. Maxim Integrated ofrece la línea de sensores MAX3010X para este tipo de aplicaciones. Estos sensores destacan por su bajo consumo de energía, precio accesible, tamaño compacto y protocolo de comunicación I2C. La <a href="#tbl-pulso" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-pulso</span></a> muestra una comparación entre los sensores MAX20100, MAX30102 y MAX30105.</p>
+<div id="tbl-pulso" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pulso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.5: Comparación de Sensores de frecuencia cardíaca
+</figcaption>
+<div aria-describedby="tbl-pulso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 21%">
+<col style="width: 7%">
+<col style="width: 28%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Sensor</strong></th>
+<th><strong>Tipo de almacenamiento</strong></th>
+<th><strong>Resolución ADC</strong></th>
+<th><strong>Funcionalidades</strong></th>
+<th><strong>Consumo de Energía</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>MAX30100</strong></td>
+<td>16-bit FIFO</td>
+<td>14-bit</td>
+<td>Frecuencia cardíaca y SpO2</td>
+<td>600 µA a 1 mA</td>
+</tr>
+<tr class="even">
+<td><strong>MAX30102</strong></td>
+<td>32-bit FIFO</td>
+<td>18-bit</td>
+<td>Frecuencia cardíaca, SpO2</td>
+<td>600 µA a 1.2 mA</td>
+</tr>
+<tr class="odd">
+<td><strong>MAX30105</strong></td>
+<td>32-bit FIFO</td>
+<td>18-bit</td>
+<td>Frecuencia cardíaca, SpO2, detección de partículas</td>
+<td>600 µA a 1.2 mA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>SEl MAX30102 se elige como la mejor opción para este proyecto por su equilibrio entre funcionalidad, costo y tamaño. A comparación del MAX30105, este es más económico y más compacto. La funcionalidad de detección de partículas no es de interés para este proyecto. Además, el MAX30102 ofrece mejoras significativas respecto al MAX30100, tanto en la resolución como en el tipo de almacenamiento. La medición de oxigenación en la sangre no es una característica actual del dispositivo planteado en esta tesis, pero podría ser una variable de interés en investigaciones futuras.</p>
+<p><strong>Circuito vibrador</strong></p>
+<p>El dispositivo cuenta con un sistema de alarma silenciosa compuesta por un motor vibrador circular de 8 mm de diámetro, alimentado a 3.7 V y un circuito de control. La <a href="#fig-circuito_motor" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-circuito_motor</span></a> muestra este circuito.</p>
+<div id="fig-circuito_motor" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-circuito_motor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../Imagenes/Circuito_motor.png" style="width:50.0%" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-circuito_motor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.1: Circuito de control del motor vibrador
+</figcaption>
+</figure>
+</div>
+<p><strong>Batería</strong></p>
+<p>El uso de baterías de polímero de litio (LiPo) es ampliamente utilizado en dispositivos portátiles debido a sus características de pequeño tamaño, bajo peso y facilidad de carga. Para este proyecto, que integra un microcontrolador XIAO ESP32C3, una pantalla XIAO Round Display, un sensor GY-906, un sensor MAX30102 y un circuito vibrador, es crucial seleccionar una capacidad de batería que asegure un funcionamiento continuo y confiable, considerando el consumo energético de cada componente involucrado.</p>
+<p>El microcontrolador XIAO ESP32C3 presenta un consumo promedio de 74.7 mA durante su operación activa <span class="citation" data-cites="xiaoesp32c3">(<a href="#ref-xiaoesp32c3" role="doc-biblioref">Studio 2024</a>)</span>, mientras que la pantalla XIAO Round Display demanda aproximadamente 70 mA <span class="citation" data-cites="xiaodisplay">(<a href="#ref-xiaodisplay" role="doc-biblioref">Solution 2024</a>)</span>. Por su parte, el sensor GY-906 tiene un consumo de corriente bajo, en el rango de 1 a 2 mA <span class="citation" data-cites="mlx90614_datasheet">(<a href="#ref-mlx90614_datasheet" role="doc-biblioref">Melexis 2009</a>)</span>, el sensor MAX30102 consume entre 0.6 y 1.2 mA durante la medición de la frecuencia cardíaca <span class="citation" data-cites="max30102_datasheet">(<a href="#ref-max30102_datasheet" role="doc-biblioref">Integrated 2015</a>)</span>. Adicionalmente, el motor vibrador registra un consumo estimado de 84 mA <span class="citation" data-cites="uelectronics_vibration_motor">(<a href="#ref-uelectronics_vibration_motor" role="doc-biblioref">uElectronics 2024</a>)</span>, dependiendo de la intensidad de la vibración y la carga aplicada.</p>
+<p>El consumo total del dispositivo en condiciones de operación máxima puede alcanzar 232 mA. Sin embargo, este nivel de consumo es poco probable alcanzarse durante el uso típico del dispositivo,ya que, durante la mayor parte del tiempo los sensores y la pantalla permanecen inactivos, y el motor vibrador se enciende únicamente por breves periodos cada hora. Con el fin de asegurar autonomía del dispositivo y evitar interrupciones en su funcionamiento, se selecciona una batería de 650 mAh. Este capacidad satisface los requisitos energéticos, permitiendo el uso prolongado del dispositivo. Además, la batería seleccionada cumple en tamaño y peso, ajustándose adecuadamente al diseño del dispositivo.</p>
+<p>La <a href="#tbl-componentes-seleccionados" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-componentes-seleccionados</span></a> muestra todos los componentes seleccionados para el desarrollo del dispositivo.</p>
+<div id="tbl-componentes-seleccionados" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-componentes-seleccionados-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.6: Tabla de componentes seleccionados
+</figcaption>
+<div aria-describedby="tbl-componentes-seleccionados-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Componente</strong></th>
+<th><strong>Descripción</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>XIAO ESP32C3</td>
+<td>Placa de desarrollo compacta con Wi-Fi y BLE</td>
+</tr>
+<tr class="even">
+<td>XIAO Round Display</td>
+<td>Pantalla circular táctil de 1.28 pulgadas</td>
+</tr>
+<tr class="odd">
+<td>GY-906</td>
+<td>Sensor infrarrojo de temperatura sin contacto</td>
+</tr>
+<tr class="even">
+<td>MAX30102</td>
+<td>Sensor óptico de frecuencia cardíaca</td>
+</tr>
+<tr class="odd">
+<td>Circuito vibrador</td>
+<td>Circuito vibrador para notificaciones silenciosas</td>
+</tr>
+<tr class="even">
+<td>Batería 650 mAh</td>
+<td>Batería LiPo recargable</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<ol start="3" type="1">
+<li><strong>Diseño del dispositivo</strong></li>
+</ol>
+<p>Una vez seleccionados los componentes principales del dispositivo, el diseño se centra en crear una carcasa compacta y adecuada en donde los componentes puedan colocarse sin interferir entre ellos y así mismo el desarrollo de los circuitos internos de conexión</p>
+<p><strong>Carcasa:</strong></p>
+<p>La carcasa del dispositivo esta diseñada para ser impresa en 3D y consta de 3 partes principales y un seguro. La primera parte es la base y esta es la que está en contacto con la muñeca del usuario, cuenta con ranuras para el acomodo y fijación de los sensores y que estos queden en contacto directo con la piel para llevar a cabo las mediciones de forma adecuada</p>
+<p>La parte central de la carcasa es la pieza que va arriba de la base y es donde se aloja el microcontrolador, el motor vibrador y el interruptor de encendido. La pieza está diseñada con compartimentos para fijar cada uno de estos componentes. Por la parte exterior de la carcasa, esta pieza cuenta con ranuras para colocar las correas que fijan el dispositivo a la muñeca del usuario.</p>
+<p>La parte superior de la carcasa está diseñada con el fin de mantener la pantalla táctil en su posición y cerrar el dispositivo. Todas las piezas se ensamblan una con otra por presión, evitando el uso de tornillos.</p>
+<p>Adicional, hay una cuarta pieza que es un seguro para fijar el interruptor de encendido. Esta se coloca por encima del interruptor una ve esté colocado en su posición en la pieza central. El seguro ensambla por presión a la pieza y deja fijo el interruptor.</p>
+<p>En la figXXX Se observan las tres piezas principales de la carcasa.</p>
+<p><strong>Diseño de los circuitos</strong></p>
+<p>El diseño de los circuitos se divide en tres circuitos, motor vibratorio para alarmas circuito <a href="#fig-conexiones" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-conexiones</span></a> a) , circuito de sensores y microcontrolador <a href="#fig-conexiones" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-conexiones</span></a> b), y el circuito de la batería <a href="#fig-conexiones" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-conexiones</span></a> c). Cada uno de estos circuitos está diseñado para mantener las conexiones lo más simples y cortas posibles. Dado que la placa XIAO ESP32C3 y la pantalla XIAO Round Display se ensamblan directamente, se omite ese circuito.</p>
+<div id="fig-conexiones" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-conexiones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../Imagenes/Diagrama de conexiones.png" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-conexiones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.2: Diagrama de conexiones
+</figcaption>
+</figure>
+</div>
+<p>El código de colores utilizado en este proyecto, para facilitar las conexiones, es:</p>
+<ul>
+<li><strong><em>Rojo:</em></strong> Conexión Vcc (3,3 V).</li>
+<li><strong><em>Negro:</em></strong> GND.</li>
+<li><strong><em>Azul:</em></strong> cable de comunicación SCL.</li>
+<li><strong><em>Blanco:</em></strong> cable de comunicación SDA.</li>
+<li><strong><em>Verde:</em></strong> señal de activación del motor.</li>
+<li><strong><em>Amarillo:</em></strong> conexión entre el pin emisor del transistor y el motor vibratorio.</li>
+</ul>
+<p>El Circuito de motor vibrador es un circuito sencillo de control de motor. Este circuito tiene la finalidad de proteger el microcontrolador al evitar que el motor se alimente directamente del pin digital del microcontrolador, si no que lo haga directamente de la alimentación general del dispositivo, dejando al pin del microcontrolador únicamente la tarea de dar la señal de activación.</p>
+<p>El circuito de los sensores y el microcontrolador tiene la función de comunicar de forma paralela ambos sensores por protocolo I2C al microcontrolador.</p>
+<p>El circuito de la batería sirve para añadir el interruptor de encendido y agregar un conector JST que va directo a la pantalla XIAO Round Display.</p>
+<p>En resumen, el diseño del dispositivo está enfocado en optimizar las conexiones, el espacio y facilitar su montaje, esto a la vez que se asegura su funcionalidad y ergonomía.</p>
+</section>
+<section id="construcción-del-dispositivo" class="level2" data-number="3.2">
+<h2 data-number="3.2" data-anchor-id="construcción-del-dispositivo"><span class="header-section-number">3.2</span> Construcción del dispositivo</h2>
+<p>La construcción del dispositivo en tres etapas: La impresión de la carcasa, la conexión de los componentes electrónicos y la integración y montaje de todos los elementos.</p>
+<p><strong><em>Carcasa:</em></strong> los archivos STL para la impresión de la carcasa los puedes encontrar en el Anexo XXX</p>
+<p><strong><em>Componentes electrónicos:</em></strong> Las conexiones de los componentes electrónicos se llevan a cabo siguiendo los diagramas de la imagen XXX. Es importante seguir correctamente los diagramas para facilitar posteriormente su acomodo dentro de la carcasa.</p>
+<p><strong><em>Integración y montaje:</em></strong> Una vez realizadas las conexiones, se lleva a cabo el montaje de los circuitos dentro de la carcasa y está se ensambla y se colocan las correas.</p>
+<p>En el articulo XXX puede encontrar información más detallada acerca del diseño y los pasos a seguir para la construcción del dispositivo.</p>
+</section>
+<section id="encuestas-e-interfaz" class="level2" data-number="3.3">
+<h2 data-number="3.3" data-anchor-id="encuestas-e-interfaz"><span class="header-section-number">3.3</span> Encuestas e interfaz</h2>
+<ol type="1">
+<li>Desarrollo del firmware: describe el desarrollo de la interfaz</li>
+<li>Implementación de la encuesta: Explica detalladamente la encuesta y porque se eligieron esos preguntas</li>
+</ol>
+</section>
+<section id="calibración" class="level2" data-number="3.4">
+<h2 data-number="3.4" data-anchor-id="calibración"><span class="header-section-number">3.4</span> Calibración</h2>
+<ol type="1">
+<li>Calibración de los sensores</li>
+</ol>
+</section>
+<section id="lógica-de-programación" class="level2" data-number="3.5">
+<h2 data-number="3.5" data-anchor-id="lógica-de-programación"><span class="header-section-number">3.5</span> Lógica de programación</h2>
+<p>XXX Agregar diagrama de flujo del articulo de Francia y después desglozarlo por partes. XXX</p>
+</section>
+<section id="instrucciones-de-uso" class="level2" data-number="3.6">
+<h2 data-number="3.6" data-anchor-id="instrucciones-de-uso"><span class="header-section-number">3.6</span> Instrucciones de uso</h2>
+<ol type="1">
+<li>Integración con la plataforma iot</li>
+<li>manejo de los datos</li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-infonavit2024regiones" class="csl-entry" role="listitem">
+Infonavit. 2024. <span>«Listado de Regiones Bioclimáticas»</span>. <a href="https://portalmx.infonavit.org.mx/wps/wcm/connect/005dcf74-d918-41aa-acfa-927e7b33d98a/12.%2BAnexo%252B1.%252BListado%252Bde%252Bregiones%252Bbioclim%25C3%25A1ticas.pdf?MOD=AJPERES&amp;CONVERT_TO=url&amp;CACHEID=ROOTWORKSPACE-005dcf74-d918-41aa-acfa-927e7b33d98a-mmCFC0">https://portalmx.infonavit.org.mx/wps/wcm/connect/005dcf74-d918-41aa-acfa-927e7b33d98a/12.%2BAnexo%252B1.%252BListado%252Bde%252Bregiones%252Bbioclim%25C3%25A1ticas.pdf?MOD=AJPERES&amp;CONVERT_TO=url&amp;CACHEID=ROOTWORKSPACE-005dcf74-d918-41aa-acfa-927e7b33d98a-mmCFC0</a>.
+</div>
+<div id="ref-max30102_datasheet" class="csl-entry" role="listitem">
+Integrated, Maxim. 2015. <em>MAX30102 High-Sensitivity Pulse Oximeter and Heart-Rate Sensor for Wearable Health</em>. <a href="https://www.alldatasheet.com/datasheet-pdf/view/859400/MAXIM/MAX30102.html">https://www.alldatasheet.com/datasheet-pdf/view/859400/MAXIM/MAX30102.html</a>.
+</div>
+<div id="ref-mlx90614_datasheet" class="csl-entry" role="listitem">
+Melexis. 2009. <em>MLX90614 Infra Red Thermometer in TO-39</em>. <a href="https://www.melexis.com/en/documents/documentation/datasheets/mlx90614-datasheet">https://www.melexis.com/en/documents/documentation/datasheets/mlx90614-datasheet</a>.
+</div>
+<div id="ref-xiaodisplay" class="csl-entry" role="listitem">
+Solution, ETA. 2024. <em>ETA6003 2.5A, 3MHz Switching Charger with Dynamic Power Path Management</em>. ETA Solution. <a href="https://files.seeedstudio.com/wiki/round_display_for_xiao/charge-IC-datasheet.pdf">https://files.seeedstudio.com/wiki/round_display_for_xiao/charge-IC-datasheet.pdf</a>.
+</div>
+<div id="ref-xiaoesp32c3" class="csl-entry" role="listitem">
+Studio, Seeed. 2024. <span>«Seeed Studio XIAO ESP32C3 Development Board»</span>. <a href="https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html?srsltid=AfmBOopHrrta3vMhxj9CZJasHKtro5S9tVjwzPT3-KtKiNUV8CeFVebb">https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html?srsltid=AfmBOopHrrta3vMhxj9CZJasHKtro5S9tVjwzPT3-KtKiNUV8CeFVebb</a>.
+</div>
+<div id="ref-uelectronics_vibration_motor" class="csl-entry" role="listitem">
+uElectronics. 2024. <span>«Motor de Vibración 5V»</span>. <a href="https://uelectronics.com/producto/motor-vibracion-5v/?srsltid=AfmBOoobMBx68FsKl3OQeHRxlqV72c0WFDIICCubVzyQFrHrNYflB-w4">https://uelectronics.com/producto/motor-vibracion-5v/?srsltid=AfmBOoobMBx68FsKl3OQeHRxlqV72c0WFDIICCubVzyQFrHrNYflB-w4</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../Capitulos/confort_termico.html" class="pagination-link" aria-label="Marco teórico">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Marco teórico</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Capitulos/resultados.html" class="pagination-link" aria-label="Conclusiones">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conclusiones</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

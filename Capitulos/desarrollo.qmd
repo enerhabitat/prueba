@@ -1,0 +1,210 @@
+# Desarrollo y construcción
+
+
+En esta sección se detalla el proceso de desarrollo y construcción del dispositivo presentado en esta tesis. Se presenta una metodología en donde se aborda una descripción general del dispositivo, la selección y justificación de los componentes a utilizar. Se aborda la etapa de diseño y construcción del dispositivo, el diseño e implementación de las encuestas a través de la interfaz gráfica. Se describe también el proceso de calibración de los sensores utilizados para garantizar precisión y mediciones fiables. Finalmente, se detalla la conexión del dispositivo a una plataforma IoT para el almacenamiento de los datos.
+
+
+## Metodología
+1. **Descripción general del dispositivo:**
+
+
+El dispositivo presentado en esta tesis es un prototipo de reloj inteligente diseñado específicamente para la investigación en el ámbito del confort térmico. Este dispositivo permite la recopilación de datos fisiológicos, tales como la frecuencia cardíaca y la temperatura de la piel, variables cuya relación con el confort térmico se discutió en el capítulo anterior. Además, este dispositivo realiza encuestas periódicas simplificadas de confort térmico mediante una interfaz de usuario intuitiva, que permite responder la encuesta de forma rápida y sencilla. La recopilación de estos datos se realiza en la plataforma de IoT llamada ThingsBoard, lo que permite la creación de una base de datos de confort térmico en un bioclima cálido semihúmedo [@infonavit2024regiones] en Temixco, Morelos. Esta base de datos facilitará estudios para el entendimiento del confort térmico y el desarrollo de modelos de confort para este tipo de bioclima, así como de modelos de confort personalizados.
+
+2. **Selección de componentes** 
+
+Para garantizar el funcionamiento preciso y adecuado del dispositivo, es fundamental seleccionar correctamente todos los componentes. A continuación se describen los principales componentes utilizados, junto con sus características y la justificación de su elección en el proyecto. Esta justificación se basa en criterios como compatibilidad, consumo energético, precisión y capacidad de procesamiento en el caso del microcontrolador.
+
+Los componentes principales son los siguientes: 
+
+* Placa de desarrollo
+* Pantalla
+* Batería 
+* Sensores
+
+**Placa de desarrollo**
+
+La selección de la tarjeta o placa de desarrollo es una decisión crucial en el desarrollo del proyecto. Se requiere una placa de tamaño reducido que cumpla con características esenciales como conexión WiFi, velocidad de procesamiento, memoria y comunicación I2C. Además, debe tener un bajo consumo energético para garantizar el uso portátil prolongado del dispositivo.
+
+Se buscan placas compactas con conectividad inalámbrica. Opciones con microcontroladores como los de Arduino, ESP y Raspberry ofrecen estas características.
+
+Durante el proceso de selección se identifican dos placas con pantallas integradas, que aunque podrían ser útiles, no cumplen con los requisitos del proyecto. La placa LILYGO TTGO, no cuenta con tecnología táctil, lo cual limita su utilidad para realizar encuestas de confort térmico. Por otro lado, la MCU RP2040 con LCD redondo de 1.28 pulgadas, aunque cuenta con una pantalla táctil, no ofrece conectividad WiFi, un requisito esencial. Aunque estas dos placas no son tomadas en cuanta por las razones ya mencionadas, sirven como referencia para la búsqueda de otras opciones. En la tabla @tbl-placas se presenta una comparación de diferentes placas de desarrollo con las características requeridas.
+
+| Placa de desarrollo          | Wifi | Bluetooth | Comunicación                    | Cable       | Pines         |
+|------------------------------|------|-----------|---------------------------------|-------------|---------------|
+| Arduino Nano 33 IoT         | si   | 4.2       | SPI, I2C, I2S, UART            | Micro USB   | 30 GPIOS, 8 ADC   |
+| Arduino nano esp32          | si   | LE        | UART, I2C, SPI, I2S, CAN(TWAI)  | USB C       |    22 GPIOS, 8 ADC           |
+| Arduino nano RP2040 connect | si   | si        | STI, I2C, I2S, PIO, UART       | USB C       | 30 GPIOS, 8 ADC  |
+| Raspberry pi pico W         | si   | 5.2       | UART, I2C, SPI                 | Micro USB   | 26 GPIOS, 3 ADC  |
+| ESP32 pico kit              | si   | si        | I2C, I2S, SPI                  | Micro USB   | 34 GPIOS      |
+| Seeed Studio XIAO ESP32C3   | si   | 5         | 1x UART, 1x IIC, 1x SPI       | USB C       | 11 GPIOS, 4 ADC |
+| Seeed Studio XIAO ESP32S3   | si   | 5         | 1x UART, 1x IIC, 1x SPI       | USB C       | 11 GPIOS, 9 ADC |
+: Comparación de características de conectividad y hardware en placas de desarrollo {#tbl-placas}
+
+Si bien todas las placas presentadas son opciones viables, Seeed Studio ha desarrollado placas orientadas a aplicaciones de dispositivos portátiles. Estas placas empatan perfectamente con las necesidades del proyecto debido a su tamaño compacto, conectividad, modos de bajo consumo y la posibilidad de la integración con una pantalla táctil desarrollada por la misma marca. Para el desarrollo del proyecto, se elige la XIAO ESPE32C3 sobre la XIAO ESP32S3. Aunque la primera es menos potente, cumple con todos los requerimientos a un menor costo. No obstante, la XIAO ESP32S3 podría ser usada sin ningún problema, ofreciendo incluso aumentar considerablemente la capacidad de memoria para futuras modificaciones o mejoras en el código. La @tbl-esp muestra las características especificas de la placa seleccionada.
+
+
+| Parametro                              | Seeed Studio XIAO ESP32C3 |
+|-------------------------------------------|----------------------------|
+| Procesador                                 | ESP32-C3 32 bit<br>RISC-V<br>160 MHz                                                                  
+| Conectividad                                  | 2.4 GHz WiFi<br>BLE: Bluetooth 5.0, Bluetooth mesh     
+| On-chip Memory                            | 400 KB SRAM & 4 MB Flash        |
+| Interfaz                                | 1x UART, 1x IIC, 1x SPI,<br>11x GPIO(PWM), 4x ADC, 1x Reset button, 1x Boot button                     |
+| Dimensiones                               | 21 x 17.8 mm                |
+| Características eléctricas                                     | Voltaje de entrada (Typo-C): 5 V<br>Voltaje de operación 3.3 V  |
+|                                           | Circuit operating Voltage (ready to operate):<br>- Type-C: 5 V@19mA <br>- BAT: 3.8 V@22mA           |
+|                                           | corriente de carga de bateria: 350 mA/100 mA                      |
+| Modo de bajo consumo                         | Modo deep-sleep: > 44 µA  |
+| WiFi activado Consumo de energía           | Modo activo: < 75 mA     |
+| Bluetooth activado Consumo de energía             | Modo modem-sleep: < 27 mA      |
+| Temperatura de trabajo                      | -40 °C ~ 85 °C               |
+: Especificaciones técnicas detalladas de la placa XIAO ESP32C3 {#tbl-esp} 
+
+
+**Pantalla**
+
+La elección de la pantalla debe alinearse con los criterios establecidos para la placa de desarrollo. se busca una pantalla que ademas de ser de tamaño reducido, sea compatible con la placa seleccionada. En la tabla @tbl-screen, se presentan las características básicas de las pantallas consideradas durante el proceso.
+
+| Pantalla                                   | touchscreen | tecnología | dimensión |
+|--------------------------------------------|-------------|------------|----------|
+| Seeed Studio Round Display for XIAO        | si          | TFT LCD    | 1.28''   |
+| Waveshare Módulo de visualización           | no          | OLED RGB   | 1.5''    |
+| GC9A01 Pantalla                            | no          | TFT LCD    | 1.28''   |
+: Comparacion de pantallas compatibles con la XIAO ESP32C3 {#tbl-screen}
+
+
+La pantalla seleccionada es la Seeed Studio Round Display for XIAO. Este modelo es perfectamente compatible con la placa XIAO ESP32C3, elegida previamente, gracias al enfoque de Seeed Studio para desarrollar un ecosistema orientado a aplicaciones de dispositivos portátiles. La compatibilidad entre los componentes, tecnología táctil y diseño redondo, logran que la pantalla se ajuste a las necesidades del proyecto.
+
+
+**Sensor de temperatura**
+
+La @tbl-temp muestra una comparación entre distintos sensores de temperatura que podrían ser utilizados en el proyecto, incluyendo termistores, sensores infrarrojos y un sensor de temperatura y humedad. Estos sensores se manejan en un rango de operación entre los 3.3 V y 5 V para garantizar su compatibilidad con la placa de desarrollo seleccionada.
+
+
+| Característica            | Tipo de sensor                      | Rango de temperatura               | Precisión                             | Comunicación                          |
+|---------------------------|-------------------------------------|------------------------------------|---------------------------------------|---------------------------------------|
+| **GY-906 (MLX90614)**     | Sensor de temperatura infrarrojo    | -70°C a 382.2°C                    | ±0.5°C (0°C a 50°C)                   | I2C                                   |
+| **ZTP-115M**              | Sensor de temperatura infrarrojo    | -20°C a 100°C                      | ±1°C (32°C a 42°C)                    | Salida analógica                      |
+| **NTC MF52AT**            | Termistor NTC                       | -55°C a 125°C                      | ±0.2°C (dependiendo de la resistencia) | Ninguna (sensor resistivo)            |
+| **BetaTherm 10K3A1**      | Termistor NTC                       | -50°C a 150°C                      | ±0.2°C (25°C a 45°C)                  | Ninguna (sensor resistivo)            |
+| **AHT20**                 | Sensor de temperatura y humedad digital | -40°C a 85°C                       | ±0.3°C (temperatura) / ±2% HR (humedad)| I2C                                   |
+: Comparación de Sensores de Temperatura por Rango Operativo y Precisión {#tbl-temp}
+
+Tras un análisis detallado, se selecciona el sensor GY-906 debido a su tamaño compacto, diseño adecuado y comunicación digital por I2C. Aunque el termistor NTC MF52AT ofrece una alternativa viable, se descarta por ser un sensor analógico. Dado que el dispositivo está diseñado para operar en un espacio reducido, cualquier interferencia en las conexiones internas podría afectar la precisión de los sensores analógicos. Por esta razón, se opta por el GY-906, que garantiza una transmisión de datos confiable y estable en entornos compactos.
+
+**Sensor de pulso cardíaco**
+
+Los sensores ópticos se han consolidado como una buena opción para la medición de la frecuencia cardíaca en dispositivos portátiles. Maxim Integrated ofrece la línea de sensores MAX3010X para este tipo de aplicaciones. Estos sensores destacan por su bajo consumo de energía, precio accesible, tamaño compacto y protocolo de comunicación I2C. La @tbl-pulso muestra una comparación entre los sensores MAX20100, MAX30102 y MAX30105.
+
+
+| **Sensor**      | **Tipo de almacenamiento**   |  **Resolución ADC**   |  **Funcionalidades**         | **Consumo de Energía**  |
+|-----------------|----------------------|--------|-----------------------------|-------------------------|
+| **MAX30100**    | 16-bit FIFO     |   14-bit   | Frecuencia cardíaca y SpO2          | 600 µA a 1 mA           |
+| **MAX30102**    | 32-bit FIFO     |   18-bit   | Frecuencia cardíaca, SpO2| 600 µA a 1.2 mA         |
+| **MAX30105**    | 32-bit FIFO     |   18-bit   | Frecuencia cardíaca, SpO2, detección de partículas | 600 µA a 1.2 mA |
+: Comparación de Sensores de frecuencia cardíaca  {#tbl-pulso}
+
+SEl MAX30102 se elige como la mejor opción para este proyecto por su equilibrio entre funcionalidad, costo y tamaño. A comparación del MAX30105, este es más económico y más compacto. La funcionalidad de detección de partículas no es de interés para este proyecto. Además, el MAX30102 ofrece mejoras significativas respecto al MAX30100, tanto en la resolución como en el tipo de almacenamiento. La medición de oxigenación en la sangre no es una característica actual del dispositivo planteado en esta tesis, pero podría ser una variable de interés en investigaciones futuras.
+
+
+**Circuito vibrador**
+
+El dispositivo cuenta con un sistema de alarma silenciosa compuesta por un motor vibrador circular de 8 mm de diámetro, alimentado a 3.7 V y un circuito de control. La @fig-circuito_motor muestra este circuito. 
+
+![Circuito de control del motor vibrador](../Imagenes/Circuito_motor.png){#fig-circuito_motor width=50%}
+
+**Batería**
+
+El uso de baterías de polímero de litio (LiPo) es ampliamente utilizado en dispositivos portátiles debido a sus características de pequeño tamaño, bajo peso y facilidad de carga. Para este proyecto, que integra un microcontrolador XIAO ESP32C3, una pantalla XIAO Round Display, un sensor GY-906, un sensor MAX30102 y un circuito vibrador, es crucial seleccionar una capacidad de batería que asegure un funcionamiento continuo y confiable, considerando el consumo energético de cada componente involucrado.
+
+El microcontrolador XIAO ESP32C3 presenta un consumo promedio de 74.7 mA durante su operación activa [@xiaoesp32c3], mientras que la pantalla XIAO Round Display demanda aproximadamente 70 mA [@xiaodisplay]. Por su parte, el sensor GY-906 tiene un consumo de corriente bajo, en el rango de 1 a 2 mA [@mlx90614_datasheet], el sensor MAX30102 consume entre 0.6 y 1.2 mA durante la medición de la frecuencia cardíaca [@max30102_datasheet]. Adicionalmente, el motor vibrador registra un consumo estimado de 84 mA [@uelectronics_vibration_motor], dependiendo de la intensidad de la vibración y la carga aplicada.
+
+El consumo total del dispositivo en condiciones de operación máxima puede alcanzar 232 mA. Sin embargo, este nivel de consumo es poco probable alcanzarse durante el uso típico del dispositivo,ya que, durante la mayor parte del tiempo los sensores y la pantalla permanecen inactivos, y el motor vibrador se enciende únicamente por breves periodos cada hora. Con el fin de asegurar autonomía del dispositivo y evitar interrupciones en su funcionamiento, se selecciona una batería de 650 mAh. Este capacidad satisface los requisitos energéticos, permitiendo el uso prolongado del dispositivo. Además, la batería seleccionada cumple en tamaño y peso, ajustándose adecuadamente al diseño del dispositivo.
+
+
+La @tbl-componentes-seleccionados muestra todos los componentes seleccionados para el desarrollo del dispositivo. 
+
+
+| **Componente**             | **Descripción**                                            |
+|----------------------------|------------------------------------------------------------|
+| XIAO ESP32C3               | Placa de desarrollo compacta con Wi-Fi y BLE                  |
+| XIAO Round Display         | Pantalla circular táctil de 1.28 pulgadas                  |
+| GY-906                     | Sensor infrarrojo de temperatura sin contacto              |
+| MAX30102                   | Sensor óptico de frecuencia cardíaca           |
+| Circuito vibrador          | Circuito vibrador para notificaciones silenciosas             |
+| Batería 650 mAh            | Batería LiPo recargable      |
+: Tabla de componentes seleccionados  {#tbl-componentes-seleccionados}
+
+
+
+
+3. **Diseño del dispositivo**
+
+
+
+Una vez seleccionados los componentes principales del dispositivo, el diseño se centra en crear una carcasa compacta y adecuada en donde los componentes puedan colocarse sin interferir entre ellos y así mismo el desarrollo de los circuitos internos de conexión
+
+**Carcasa:**
+
+La carcasa del dispositivo esta diseñada para ser impresa en 3D y consta de 3 partes principales y un seguro. La primera parte es la base y esta es la que está en contacto con la muñeca del usuario, cuenta con ranuras para el acomodo y fijación de los sensores y que estos queden en contacto directo con la piel para llevar a cabo las mediciones de forma adecuada
+
+La parte central de la carcasa es la pieza que va arriba de la base y es donde se aloja el microcontrolador, el motor vibrador y el interruptor de encendido. La pieza está diseñada con compartimentos para fijar cada uno de estos componentes. Por la parte exterior de la carcasa, esta pieza cuenta con ranuras para colocar las correas que fijan el dispositivo a la muñeca del usuario.
+
+La parte superior de la carcasa está diseñada con el fin de mantener la pantalla táctil en su posición y cerrar el dispositivo. Todas las piezas se ensamblan una con otra por presión, evitando el uso de tornillos.
+
+Adicional, hay una cuarta pieza que es un seguro para fijar el interruptor de encendido. Esta se coloca por encima del interruptor una ve esté colocado en su posición en la pieza central. El seguro ensambla por presión a la pieza y deja fijo el interruptor.
+
+En la figXXX Se observan las tres piezas principales de la carcasa.
+
+**Diseño de los circuitos**
+
+El diseño de los circuitos se divide en tres circuitos, motor vibratorio para alarmas circuito @fig-conexiones a) , circuito de sensores y
+microcontrolador @fig-conexiones b), y el circuito de la batería @fig-conexiones c). Cada uno de estos circuitos está diseñado para mantener las conexiones lo más simples y cortas posibles. Dado que la placa XIAO ESP32C3 y la pantalla XIAO Round Display se ensamblan directamente, se omite ese circuito.
+
+![Diagrama de conexiones](../Imagenes/Diagrama%20de%20conexiones.png){#fig-conexiones}
+
+El código de colores utilizado en este proyecto, para facilitar las conexiones, es:
+
+* ***Rojo:*** Conexión Vcc (3,3 V).
+* ***Negro:*** GND.
+* ***Azul:*** cable de comunicación SCL.
+* ***Blanco:*** cable de comunicación SDA.
+* ***Verde:*** señal de activación del motor.
+* ***Amarillo:*** conexión entre el pin emisor del transistor y el motor vibratorio.
+
+El Circuito de motor vibrador es un circuito sencillo de control de motor. Este circuito tiene la finalidad de proteger el microcontrolador al evitar que el motor se alimente directamente del pin digital del microcontrolador, si no que lo haga directamente de la alimentación general del dispositivo, dejando al pin del microcontrolador únicamente la tarea de dar la señal de activación.
+
+El circuito de los sensores y el microcontrolador tiene la función de comunicar de forma paralela ambos sensores por protocolo I2C al microcontrolador.
+
+El circuito de la batería sirve para añadir el interruptor de encendido y agregar un conector JST que va directo a la pantalla XIAO Round Display.
+
+En resumen, el diseño del dispositivo está enfocado en optimizar las conexiones, el espacio y facilitar su montaje, esto a la vez que se asegura su funcionalidad y ergonomía.
+
+
+## Construcción del dispositivo
+
+La construcción del dispositivo en tres etapas: La impresión de la carcasa, la conexión de los componentes electrónicos y la integración y montaje de todos los elementos.
+
+***Carcasa:*** los archivos STL para la impresión de la carcasa los puedes encontrar en el Anexo XXX
+
+***Componentes electrónicos:*** Las conexiones de los componentes electrónicos se llevan a cabo siguiendo los diagramas de la imagen XXX. Es importante seguir correctamente los diagramas para facilitar posteriormente su acomodo dentro de la carcasa. 
+
+***Integración y montaje:*** Una vez realizadas las conexiones, se lleva a cabo el montaje de los circuitos dentro de la carcasa y está se ensambla y se colocan las correas.
+
+En el articulo XXX puede encontrar información más detallada acerca del diseño y los pasos a seguir para la construcción del dispositivo.
+
+
+## Encuestas e interfaz
+
+1. Desarrollo del firmware: describe el desarrollo de la interfaz
+2. Implementación de la encuesta: Explica detalladamente la encuesta y porque se eligieron esos preguntas
+
+## Calibración
+1. Calibración de los sensores 
+
+## Lógica de programación
+
+XXX Agregar diagrama de flujo del articulo de Francia y después desglozarlo por partes. XXX
+
+## Instrucciones de uso
+1. Integración con la plataforma iot
+2. manejo de los datos

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Introducción – Reloj inteligente IoT basado en tecnologías abiertas para la recopilación de datos de confort térmico </title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../Capitulos/confort_termico.html" rel="next">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Capitulos/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Reloj inteligente IoT basado en tecnologías abiertas para la recopilación de datos de confort térmico</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Capitulos/intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Capitulos/confort_termico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Marco teórico</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Capitulos/desarrollo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Desarrollo y construcción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Capitulos/resultados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conclusiones</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Capitulos/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>El reporte de Cambio Climático 2023 del Panel Intergubernamental sobre Cambio Climático (IPCC) advierte sobre un probable aumento en la temperatura superior a 1.5°C entre los años 2021 y 2040, alcanzando hasta los 5.7°C para 2100 <span class="citation" data-cites="IPCC2023">(<a href="#ref-IPCC2023" role="doc-biblioref">Synthesis Report 2023</a>)</span>. Para limitar este calentamiento, es imprescindible una reducción drástica de las emisiones globales de gases de efecto invernadero (GEI). Estas emisiones deben alcanzar su máximo antes del año 2025 y luego disminuir en un 43% para el año 2030, llegando a cero neto para el año 2050, conforme los Objetivos de Desarrollo Sostenible de la <span class="citation" data-cites="Ods2015">Organización de las Naciones Unidas (<a href="#ref-Ods2015" role="doc-biblioref">2015</a>)</span>.</p>
+<p>Las emisiones de GEI generadas por el uso de energía representan el 73.2% a nivel global, y el uso de energía en edificaciones constituye el 17.5%, desglosado en un 6.6% en edificaciones no residenciales y un 10.9% en edificaciones residenciales <span class="citation" data-cites="owid-ghg-emissions-by-sector">(<a href="#ref-owid-ghg-emissions-by-sector" role="doc-biblioref">Ritchie 2020</a>)</span>. En México, el sector residencial, comercial y público representa el 17.16% del consumo final de energía, de los cuales el 34.29% corresponden a consumo eléctrico <span class="citation" data-cites="BNE2022">(<a href="#ref-BNE2022" role="doc-biblioref">Secretaría de Energía 2023</a>)</span>. En materia de eficiencia energética, el principal desafío que enfrentan los edificios no residenciales en México es su uso intensivo de electricidad <span class="citation" data-cites="Chatellier2020">(<a href="#ref-Chatellier2020" role="doc-biblioref">Lorentzen y McNeil 2020</a>)</span>.</p>
+<p>La eficiencia energética desempeña un papel crucial en la lucha contra el cambio climático al optimizar el uso de recursos. Avanzar hacía la eficiencia energética implica reducir las emisiones de gases de efecto invernadero (GEI), lo cual favorece la descarbonización del sistema energético. Las fuente de energías renovables pueden ser un aliado valioso en el camino a la eficiencia energética.</p>
+<p>Además, es importante destacar que una parte esencial en la búsqueda de la eficiencia energética en edificaciones es la aplicación de estrategias de diseño bioclimático. Estas consisten en el diseño de la edificación de acuerdo al clima del lugar donde estará construida <span class="citation" data-cites="olgyay1963">(<a href="#ref-olgyay1963" role="doc-biblioref">Olgyay et&nbsp;al. 1963</a>)</span>. Esto propicia tener espacios que satisfagan las necesidades y expectativas de los ocupantes, proporcionando condiciones de confort térmico para una mejor calidad de vida y productividad.</p>
+<p>La digitalización energética tiene como objetivo contribuir a la eficiencia energética y la fiabilidad del sistema energético en su conjunto mediante el análisis de datos y la integración de tecnologías digitales en la producción, almacenamiento, distribución y consumo de energía. Esto implica el uso de tecnologías emergentes como la inteligencia artificial (IA) o el internet de las cosas (IoT) <span class="citation" data-cites="Olabi2023">(<a href="#ref-Olabi2023" role="doc-biblioref">Olabi, Abdelkarem, y Jouhara 2023</a>)</span>. Esto favorece indirectamente a la sustentabilidad al respaldar la eficiencia energética y fortalecer la fiabilidad del sistema energético.</p>
+<p>Si bien la digitalización energética es prometedora en este sentido para la eficiencia energética y la descarbonización, también presenta desafíos debido a que se espera un aumento en la demanda de energía a nivel global <span class="citation" data-cites="IPCC2022">(<a href="#ref-IPCC2022" role="doc-biblioref">Mitigation of Climate Change 2022</a>)</span>. Para poder llevar a cabo un proceso de digitalización energética adecuado que permita lograr los objetivos de descarbonización, se debe buscar una democracia energética con tres perspectivas clave: soberanía popular, un gobierno participativo y propiedad civil <span class="citation" data-cites="Judson2022">(<a href="#ref-Judson2022" role="doc-biblioref">Judson, Fitch-Roy, y Soutar 2022</a>)</span>.</p>
+<p>En la búsqueda de un futuro sustentable, la transición hacia fuentes de energía renovables, tecnologías eficientes, edificaciones sustentables y una democracia energética son de vital importancia; aunado a la creciente necesidad de abordar la crisis climática, el consumo energético de edificaciones requiere de acciones inmediatas.</p>
+<p>El confort térmico se define como una condición mental que expresa la satisfacción con el ambiente, y es un juicio cognitivo influenciado por procesos físicos, fisiológicos y otros factores <span class="citation" data-cites="ASHRAE55">(<a href="#ref-ASHRAE55" role="doc-biblioref">American Society of Heating, Refrigerating and Air-Conditioning Engineers, Inc. 2017</a>)</span>. Desempeña un papel esencial en el consumo de energía en edificaciones, pues está intrínsecamente ligado a la forma en que diseñamos las edificaciones. Una gran parte del consumo de energía en estas se ocupa en mantener condiciones óptimas de iluminación, temperatura y humedad del aire, buscando obtener espacios con condiciones adecuadas para que los ocupantes se encuentren confort térmico, lumínico y acústico.</p>
+<p>Para el confort térmico se toman en cuenta siete variables físicas, las cuales están relacionadas a la transferencia de calor entre el ocupante y su entorno, así como a los modelos de predicción de confort térmico. Estas variables incluyen la temperatura, humedad relativa y velocidad del aire, temperatura radiante, presión atmosférica, aislamiento térmico de la ropa y nivel metabólico del ocupante <span class="citation" data-cites="Enescu2017">(<a href="#ref-Enescu2017" role="doc-biblioref">Enescu 2017</a>)</span>. Asimismo, existen variables fisiológicas altamente relacionadas con el confort térmico que pueden servir como indicadores, tales como la temperatura de la piel, la frecuencia cardíaca y la variabilidad de la frecuencia cardíaca <span class="citation" data-cites="Bogatu2023">(<a href="#ref-Bogatu2023" role="doc-biblioref">Bogatu et&nbsp;al. 2023</a>)</span>.</p>
+<p>Durante la fase de diseño de una edificación, el empleo de modelos predictivos de confort térmico se convierte en una herramienta esencial para desarrollar estrategias efectivas de diseño bioclimático. Además, es crucial realizar encuestas de evaluación durante la ocupación para determinar el nivel de confort térmico y evaluar la efectividad de las estrategias implementadas durante la fase de diseño. Estas encuestas se basan principalmente en cuestionarios destinados a recabar la opinión de los ocupantes sobre su experiencia ambiental, mientras que las mediciones experimentales de las variables físicas que inciden en el entorno sirven como un respaldo fundamental <span class="citation" data-cites="Calixto2021">(<a href="#ref-Calixto2021" role="doc-biblioref">Aguirre 2021</a>)</span>.</p>
+<p>En este contexto, la transición hacia edificaciones sustentables no se trata solo de reducir el consumo energético, sino de hacerlo de manera eficiente sin comprometer el confort térmico, acústico y lumínico.</p>
+<p>Existen diversos modelos que se utilizan para la predicción del confort térmico en edificaciones. Estos modelos se clasifican comúnmente en dos categorías: para edificaciones con sistemas de aire acondicionado y para edificaciones sin este tipo de sistemas. Entre los modelos para edificaciones con sistemas de aire acondicionado, el modelo más utilizado es el conocido como método Fanger, este método se basa en las variables físicas relacionadas al confort térmico mencionadas previamente. Estas variables se utilizan en ecuaciones para calcular el índice de sensación térmica (PMV por sus siglas en inglés) y el porcentaje de personas insatisfechas (PPD por sus siglas en inglés) <span class="citation" data-cites="Fanger1970">(<a href="#ref-Fanger1970" role="doc-biblioref">Fanger 1970</a>)</span>. Mientras que para los sistemas sin aire acondicionado existen algunos modelos como el PMV adaptativo o el PMV extendido <span class="citation" data-cites="ASHRAE55">(<a href="#ref-ASHRAE55" role="doc-biblioref">American Society of Heating, Refrigerating and Air-Conditioning Engineers, Inc. 2017</a>)</span>, entre otros, los cuales, se explicaran más a detalle en el siguiente capítulo.</p>
+<p>Un problema es la precisión de los modelos existentes como el caso del método Fanger (PMV-PPD), un estudio realizado por <span class="citation" data-cites="CHEUNG2019">Cheung et&nbsp;al. (<a href="#ref-CHEUNG2019" role="doc-biblioref">2019</a>)</span> donde se determina la precisión del modelo con la base de datos de confort térmico global del ASHRAE, reporta que el PMV tiene una precisión del 34% respecto a la sensación térmica observada, mientras que el PPD puede llegar a sobrestimar la insatisfacción de los ocupantes. Esto da pie a continuar con la investigación y desarrollo de más modelos, como el caso de la implementación de algoritmos de aprendizaje automático.</p>
+<p>En años recientes se han utilizado nuevas herramientas como el caso de los dispositivos wearables para el desarrollo de modelos de confort, la implementación de dichos dispositivos con sensores integrados, tienen la capacidad de medir variables ambientales y fisiológicas que permiten generar bases de datos que incluyan datos fisiológicos de los ocupantes y la obtención de modelos de confort más precisos.</p>
+<p>En esta tesis se presenta el desarrollo de un prototipo de wearable con software y hardware libres que recopile y envíe datos sobre encuestas de confort térmico e información extra de variables fisiológicas a una plataforma de IoT, con el fin de crear una base de datos que permita el desarrollo de modelos de confort térmico. A continuación se presenta las contribuciones de este proyecto.</p>
+<p><strong>Medición precisa y en tiempo real de variables fisiológicas:</strong> El uso de un dispositivo wearable permite la captura directa de variables fisiológicas relacionadas al confort térmico, como la temperatura corporal y la frecuencia cardíaca.</p>
+<p><strong>Monitoreo continuo y no intrusivo</strong>: Al ser un dispositivo portable y de uso constante, este permite el monitoreo continuo y no intrusivo de las variables fisiológicas mencionadas previamente, facilitando la recopilación de datos a lo largo del tiempo, lo cual es fundamental para el análisis de patrones y tendencias en el confort térmico.</p>
+<p><strong>Encuestas de confort térmico simplificadas:</strong> La función de encuestas periódicas de confort térmico es una de las partes más importantes en el desarrollo del dispositivo para la creación de una base de datos. Estas encuestas permiten al usuario evaluar su nivel de confort térmico de manera rápida y sencilla.</p>
+<p><strong>Contextualización de los datos de confort térmico:</strong> Al integrarse el dispositivo a la red de Internet de las Cosas del Instituto de Energías Renovables junto con los demás dispositivos de medición de variables físicas previamente instalados en el instituto, permite contextualizar los datos de confort térmico del usuario en relación con las condiciones ambientales del entorno.</p>
+<p><strong>Potencial desarrollo de modelos de confort térmico:</strong> El desarrollo de este proyecto a un futuro puede tomar dos vertientes. Una en donde se puedan generar modelos de confort personalizados para cada individuo, favoreciendo a la digitalización energética y la automatización de espacios. Y la otra vertiente para generar modelos predictivos de confort térmico contextualizados para la comunidad del instituto.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Calixto2021" class="csl-entry" role="listitem">
+Aguirre, Verónica Ivette Calixto. 2021. <span>«Thermal comfort studies»</span>. Universidad Nacional Autonoma de México. <a href="http://132.248.9.195/ptd2021/septiembre/0814603/Index.html">http://132.248.9.195/ptd2021/septiembre/0814603/Index.html</a>.
+</div>
+<div id="ref-ASHRAE55" class="csl-entry" role="listitem">
+American Society of Heating, Refrigerating and Air-Conditioning Engineers, Inc. 2017. <em>Thermal Environmental Conditions for Human Occupancy</em>. ASHRAE Standard 55-2017. American Society of Heating, Refrigerating; Air-Conditioning Engineers, Inc.
+</div>
+<div id="ref-Bogatu2023" class="csl-entry" role="listitem">
+Bogatu, Dragos Ioan, Jun Shinoda, José Joaquín Aguilera, Bjarne W. Olesen, Futa Watanabe, Yosuke Kaneko, y Ongun B. Kazanci. 2023. <span>«Human physiology for personal thermal comfort-based HVAC control – A review»</span>. <em>Building and Environment</em> 240 (julio): 110418. <a href="https://doi.org/10.1016/J.BUILDENV.2023.110418">https://doi.org/10.1016/J.BUILDENV.2023.110418</a>.
+</div>
+<div id="ref-CHEUNG2019" class="csl-entry" role="listitem">
+Cheung, Toby, Stefano Schiavon, Thomas Parkinson, Peixian Li, y Gail Brager. 2019. <span>«Analysis of the accuracy on PMV – PPD model using the ASHRAE Global Thermal Comfort Database II»</span>. <em>Building and Environment</em> 153: 205-17. https://doi.org/<a href="https://doi.org/10.1016/j.buildenv.2019.01.055">https://doi.org/10.1016/j.buildenv.2019.01.055</a>.
+</div>
+<div id="ref-Enescu2017" class="csl-entry" role="listitem">
+Enescu, Diana. 2017. <span>«A review of thermal comfort models and indicators for indoor environments»</span>. <em>Renewable and Sustainable Energy Reviews</em> 79 (noviembre): 1353-79. <a href="https://doi.org/10.1016/J.RSER.2017.05.175">https://doi.org/10.1016/J.RSER.2017.05.175</a>.
+</div>
+<div id="ref-Fanger1970" class="csl-entry" role="listitem">
+Fanger, P. O. 1970. <em>Thermal Comfort: Analysis and Applications in Environmental Engineering</em>. Copenhagen: Danish Technical Press. <a href="https://archive.org/details/thermalcomfortan0000fang">https://archive.org/details/thermalcomfortan0000fang</a>.
+</div>
+<div id="ref-Judson2022" class="csl-entry" role="listitem">
+Judson, Emily, Oscar Fitch-Roy, y Iain Soutar. 2022. <span>«Energy democracy: A digital future?»</span> <em>Energy Research and Social Science</em> 91 (septiembre). <a href="https://doi.org/10.1016/j.erss.2022.102732">https://doi.org/10.1016/j.erss.2022.102732</a>.
+</div>
+<div id="ref-Chatellier2020" class="csl-entry" role="listitem">
+Lorentzen, Diego M. P. Chatellier, y Michael A. McNeil. 2020. <span>«Electricity demand of non-residential buildings in Mexico»</span>. <em>Sustainable Cities and Society</em> 59 (agosto). <a href="https://doi.org/10.1016/j.scs.2020.102165">https://doi.org/10.1016/j.scs.2020.102165</a>.
+</div>
+<div id="ref-IPCC2022" class="csl-entry" role="listitem">
+Mitigation of Climate Change, Climate Change 2022 -. 2022. <span>«Mitigation of Climate Change Climate Change 2022 Working Group III contribution to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change»</span>. <a href="https://www.ipcc.ch/site/assets/uploads/2018/05/uncertainty-guidance-note.pdf.">https://www.ipcc.ch/site/assets/uploads/2018/05/uncertainty-guidance-note.pdf.</a>
+</div>
+<div id="ref-Olabi2023" class="csl-entry" role="listitem">
+Olabi, A. G., Mohammad Ali Abdelkarem, y Hussam Jouhara. 2023. <span>«Energy digitalization: Main categories, applications, merits, and barriers»</span>. <em>Energy</em>. Elsevier Ltd. <a href="https://doi.org/10.1016/j.energy.2023.126899">https://doi.org/10.1016/j.energy.2023.126899</a>.
+</div>
+<div id="ref-olgyay1963" class="csl-entry" role="listitem">
+Olgyay, V., D. Lyndon, J. Reynolds, y K. Yeang. 1963. <em>Design with Climate: Bioclimatic Approach to Architectural Regionalism - New and expanded Edition</em>. Princeton University Press. <a href="https://books.google.com.mx/books?id=RRQ-CgAAQBAJ">https://books.google.com.mx/books?id=RRQ-CgAAQBAJ</a>.
+</div>
+<div id="ref-Ods2015" class="csl-entry" role="listitem">
+Organización de las Naciones Unidas. 2015. <span>«Transforming our world: the 2030 Agenda for Sustainable Development»</span>. <a href="https://digitallibrary.un.org/record/3923923">https://digitallibrary.un.org/record/3923923</a>.
+</div>
+<div id="ref-owid-ghg-emissions-by-sector" class="csl-entry" role="listitem">
+Ritchie, Hannah. 2020. <span>«Sector by sector: where do global greenhouse gas emissions come from?»</span> <em>Our World in Data</em>.
+</div>
+<div id="ref-BNE2022" class="csl-entry" role="listitem">
+Secretaría de Energía. 2023. <span>«Balance Nacional de Energía Preliminar 2022»</span>. <a href="https://www.gob.mx/cms/uploads/attachment/file/841526/BNE_2022.pdf">https://www.gob.mx/cms/uploads/attachment/file/841526/BNE_2022.pdf</a>.
+</div>
+<div id="ref-IPCC2023" class="csl-entry" role="listitem">
+Synthesis Report, Climate Change 2023: 2023. <span>«IPCC, 2023: Climate Change 2023: Synthesis Report. Contribution of Working Groups I, II and III to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change [Core Writing Team, H. Lee and J. Romero (eds.)]. IPCC, Geneva, Switzerland.»</span> Editado por Paola Arias, Mercedes Bustamante, Ismail Elgizouli, Gregory Flato, Mark Howden, Carlos Méndez-Vallejo, Joy Jacqueline Pereira, et&nbsp;al. Intergovernmental Panel on Climate Change. <a href="https://doi.org/10.59327/IPCC/AR6-9789291691647">https://doi.org/10.59327/IPCC/AR6-9789291691647</a>.
+</div>
+</div>
+
+</main> <!-- /main -->
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Resumen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Resumen</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Capitulos/confort_termico.html" class="pagination-link" aria-label="Marco teórico">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Marco teórico</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

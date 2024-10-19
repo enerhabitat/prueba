@@ -1,0 +1,51 @@
+# Introducción
+
+
+El reporte de Cambio Climático 2023 del Panel Intergubernamental sobre Cambio Climático (IPCC) advierte sobre un probable aumento en la temperatura superior a 1.5°C entre los años 2021 y 2040, alcanzando hasta los 5.7°C para 2100 [@IPCC2023]. Para limitar este calentamiento, es imprescindible una reducción drástica de las emisiones globales de gases de efecto invernadero (GEI). Estas emisiones deben alcanzar su máximo antes del año 2025 y luego disminuir en un 43% para el año 2030, llegando a cero neto para el año 2050, conforme los Objetivos de Desarrollo Sostenible de la @Ods2015.
+
+Las emisiones de GEI generadas por el uso de energía representan el 73.2% a nivel global, y el uso de energía en edificaciones constituye el 17.5%, desglosado en un 6.6% en edificaciones no residenciales y un 10.9% en edificaciones residenciales [@owid-ghg-emissions-by-sector]. En México, el sector residencial, comercial y público representa el 17.16% del consumo final de energía, de los cuales el 34.29% corresponden a consumo eléctrico [@BNE2022]. En materia de eficiencia energética, el principal desafío que enfrentan los edificios no residenciales en México es su uso intensivo de electricidad [@Chatellier2020].
+
+La eficiencia energética desempeña un papel crucial en la lucha contra el cambio climático al optimizar el uso de recursos. Avanzar hacía la eficiencia energética implica reducir las emisiones de gases de efecto invernadero (GEI), lo cual favorece la descarbonización del sistema energético. Las fuente de energías renovables pueden ser un aliado valioso en el camino a la eficiencia energética.
+
+Además, es importante destacar que una parte esencial en la búsqueda de la eficiencia energética en edificaciones es la aplicación de estrategias de diseño bioclimático. Estas consisten en el diseño de la edificación de acuerdo al clima del lugar donde estará construida [@olgyay1963]. Esto propicia tener espacios que satisfagan las necesidades y expectativas de los ocupantes, proporcionando condiciones de confort térmico para una mejor calidad de vida y productividad.
+
+La digitalización energética tiene como objetivo contribuir a la eficiencia energética y la fiabilidad del sistema energético en su conjunto mediante el análisis de datos y la integración de tecnologías digitales en la producción, almacenamiento, distribución y consumo de energía. Esto implica el uso de tecnologías emergentes como la inteligencia artificial (IA) o el internet de las cosas (IoT) [@Olabi2023]. Esto favorece indirectamente a la sustentabilidad al respaldar la eficiencia energética y fortalecer la fiabilidad del sistema energético.
+
+
+Si bien la digitalización energética es prometedora en este sentido para la eficiencia energética y la descarbonización, también presenta desafíos debido a que se espera un aumento en la demanda de energía a nivel global [@IPCC2022]. Para poder llevar a cabo un proceso de digitalización energética adecuado que permita lograr los objetivos de descarbonización, se debe buscar una democracia energética con tres perspectivas clave: soberanía popular, un gobierno participativo y propiedad civil [@Judson2022].
+
+En la búsqueda de un futuro sustentable, la transición hacia fuentes de energía renovables, tecnologías eficientes, edificaciones sustentables y una democracia energética son de vital importancia; aunado a la creciente necesidad de abordar la crisis climática, el consumo energético de edificaciones requiere de acciones inmediatas.
+
+
+El confort térmico se define como una condición mental que expresa la satisfacción con el ambiente, y es un juicio cognitivo influenciado por procesos físicos, fisiológicos y otros factores [@ASHRAE55]. Desempeña un papel esencial en el consumo de energía en edificaciones, pues está intrínsecamente ligado a la forma en que diseñamos las edificaciones. Una gran parte del consumo de energía en estas se ocupa en mantener condiciones óptimas de iluminación, temperatura y humedad del aire, buscando obtener espacios con condiciones adecuadas para que los ocupantes se encuentren confort térmico, lumínico y acústico.
+
+
+Para el confort térmico se toman en cuenta siete variables físicas, las cuales están relacionadas a la transferencia de calor entre el ocupante y su entorno, así como a los modelos de predicción de confort térmico. Estas variables incluyen la temperatura, humedad relativa y velocidad del aire, temperatura radiante, presión atmosférica, aislamiento térmico de la ropa y nivel metabólico del ocupante [@Enescu2017]. Asimismo, existen variables fisiológicas altamente relacionadas con el confort térmico que pueden servir como indicadores, tales como la temperatura de la piel, la frecuencia cardíaca y la variabilidad de la frecuencia cardíaca [@Bogatu2023].
+
+
+Durante la fase de diseño de una edificación, el empleo de modelos predictivos de confort térmico se convierte en una herramienta esencial para desarrollar estrategias efectivas de diseño bioclimático. Además, es crucial realizar encuestas de evaluación durante la ocupación para determinar el nivel de confort térmico y evaluar la efectividad de las estrategias implementadas durante la fase de diseño.  Estas encuestas se basan principalmente en cuestionarios destinados a recabar la opinión de los ocupantes sobre su experiencia ambiental, mientras que las mediciones experimentales de las variables físicas que inciden en el entorno sirven como un respaldo fundamental [@Calixto2021].
+
+En este contexto, la transición hacia edificaciones sustentables no se trata solo de reducir el consumo energético, sino de hacerlo de manera eficiente sin comprometer el confort térmico, acústico y lumínico. 
+
+Existen diversos modelos que se utilizan para la predicción del confort térmico en edificaciones. Estos modelos se clasifican comúnmente en dos categorías: para edificaciones con sistemas de aire acondicionado y para edificaciones sin este tipo de sistemas. Entre los modelos para edificaciones con sistemas de aire acondicionado, el modelo más utilizado es el conocido como método Fanger, este método se basa en las variables físicas relacionadas al confort térmico mencionadas previamente. Estas variables se utilizan en ecuaciones para calcular el índice de sensación térmica (PMV por sus siglas en inglés) y el porcentaje de personas insatisfechas (PPD por sus siglas en inglés) [@Fanger1970]. Mientras que para los sistemas sin aire acondicionado existen algunos modelos como el PMV adaptativo o el PMV extendido [@ASHRAE55], entre otros, los cuales, se explicaran más a detalle en el siguiente capítulo.
+
+
+Un problema es la precisión de los modelos existentes como el caso del método Fanger (PMV-PPD), un estudio realizado por @CHEUNG2019 donde se determina la precisión del modelo con la base de datos de confort térmico global del ASHRAE, reporta que el PMV tiene una precisión del 34% respecto a la sensación térmica observada, mientras que el PPD puede llegar a sobrestimar la insatisfacción de los ocupantes. Esto da pie a continuar con la investigación y desarrollo de más modelos, como el caso de la implementación de algoritmos de aprendizaje automático.
+
+En años recientes se han utilizado nuevas herramientas como el caso de los dispositivos wearables para el desarrollo de modelos de confort, la implementación de dichos dispositivos con sensores integrados, tienen la capacidad de medir variables ambientales y fisiológicas que permiten generar bases de datos que incluyan datos fisiológicos de los ocupantes y la obtención de modelos de confort más precisos.
+
+
+En esta tesis se presenta el desarrollo de un prototipo de wearable con software y hardware libres que recopile y envíe datos sobre encuestas de confort térmico e información extra de variables fisiológicas a una plataforma de IoT, con el fin de crear una base de datos que permita el desarrollo de modelos de confort térmico. A continuación se presenta las contribuciones de este proyecto. 
+
+**Medición precisa y en tiempo real de variables fisiológicas:** El uso de un dispositivo wearable permite la captura directa de variables fisiológicas relacionadas al confort térmico, como la temperatura corporal y la frecuencia cardíaca.
+
+**Monitoreo continuo y no intrusivo**: Al ser un dispositivo portable y de uso constante, este permite el monitoreo continuo y no intrusivo de las variables fisiológicas mencionadas previamente, facilitando la recopilación de datos a lo largo del tiempo, lo cual es fundamental para el análisis de patrones y tendencias en el confort térmico.
+
+**Encuestas de confort térmico simplificadas:** La función de encuestas periódicas de confort térmico es una de las partes más importantes en el desarrollo del dispositivo para la creación de una base de datos. Estas encuestas permiten al usuario evaluar su nivel de confort térmico de manera rápida y sencilla.
+
+**Contextualización de los datos de confort térmico:** Al integrarse el dispositivo a la red de Internet de las Cosas del Instituto de Energías Renovables junto con los demás dispositivos de medición de variables físicas previamente instalados en el instituto, permite contextualizar los datos de confort térmico del usuario en relación con las condiciones ambientales del entorno.
+
+**Potencial desarrollo de modelos de confort térmico:** El desarrollo de este proyecto a un futuro puede tomar dos vertientes. Una en donde se puedan generar modelos de confort personalizados para cada individuo, favoreciendo a la digitalización energética y la automatización de espacios. Y la otra vertiente para generar modelos predictivos de confort térmico contextualizados para la comunidad del instituto.
+
+
+

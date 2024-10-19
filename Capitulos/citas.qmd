@@ -1,0 +1,191 @@
+
+**Climate Change 2023: Synthesis Report**
+
+El IPCC establece que existe una probabilidad de más del 50% de que el aumento de la temperatura global alcance o supere los 1.5 °C entre 2021 y 2040 en los escenarios estudiados, y que específicamente en una ruta de altas emisiones, el mundo puede alcanzar este umbral incluso antes, entre 2018 y 2037. El aumento de la temperatura global en un escenario tan intensivo en emisiones de carbono también podría aumentar a entre 3.3 °C y 5.7 °C para 2100. Para poner este grado proyectado de calentamiento en perspectiva, la última vez que las temperaturas globales superaron los 2.5 °C por encima de los niveles preindustriales fue hace más de 3 millones de años.
+
+Según el IPCC, para limitar el calentamiento global a 1,5 °C por encima de los niveles preindustriales, las emisiones globales de gases de efecto invernadero deberán alcanzar su punto máximo antes de 2025 y luego disminuir en un 43% para 2030, llegando a cero neto para 2050, esto con la finalidad de cumplir con los Objetivos de Desarrollo Sostenible planteador por la ONU en el 2015. @Ods2015
+
+Si bien los combustibles fósiles son la fuente número uno de emisiones de GEI, se necesitan reducciones profundas de las emisiones en toda la sociedad para combatir la crisis climática. La generación de energía, los edificios, la industria y el transporte son responsables de cerca del 80 % de las emisiones globales, y el 20 % restante corresponde a la agricultura, la silvicultura y otros usos de la tierra.
+
+La temperatura de la superficie global en las dos primeras décadas del siglo XXI (2001-2020) fue 0,99 [0,84 a 1,10] °C más alta que la del período 1850-1900. La temperatura de la superficie global ha aumentado más rápidamente desde 1970 que en cualquier otro período de 50 años durante al menos los últimos 2000 años. @IPCC2023
+
+**IPCC Climate Change 2022** 
+
+Según el informe del IPCC 2022, la digitalización ofrece tanto oportunidades como desafíos en la mitigación del cambio climático. Si bien puede mejorar la eficiencia y la descarbonización, también se prevé un aumento en la demanda de energía. Para abordar este dilema, se requieren políticas proactivas y regulación de desechos electrónicos. Además, es vital realizar más investigaciones para comprender plenamente el impacto de la digitalización en el consumo de energía. Esto se vuelve aún más urgente considerando la proyección de un aumento inevitable de 1.5 °C en la temperatura global en las próximas dos décadas. En este contexto, la transición lejos de los combustibles fósiles, la adopción de prácticas alimenticias más sostenibles y la reconfiguración de los modelos urbanos son medidas esenciales para abordar el cambio climático. @IPCC2022
+
+
+**Energy democracy: A digital future?** 
+
+examina la relación entre la democracia energética y la digitalización. Destaca tres objetivos principales de la democracia energética y propone tres perspectivas clave: soberanía popular, gobierno participativo y propiedad civil mediante el uso de software de código abierto. El informe también presenta cuatro hallazgos fundamentales, enfocándose en cómo la digitalización puede impactar la sostenibilidad, la innovación en el sector energético, los posibles conflictos de propiedad y la reconfiguración de las relaciones de poder. Estos hallazgos resaltan la importancia de la digitalización en la evolución de la democracia energética y la sociedad en general. @Judson2022
+
+**Balance Nacional de Energía 2022**
+
+El Balance Nacional de Energía Preliminar 2022 publicado por la Secretaría de Energía de México 1 muestra que el consumo final de energía en México se distribuyó en cinco sectores principales: transporte, industrial, residencial, comercial y público, y agropecuario. El sector residencial, comercial y público representó el 17.16% del consumo total de energía en México, con un consumo de 990.36 PJ.  @BNE2022
+
+
+**Demanda eléctrica de edificaciones no residenciales en México**
+
+@Chatellier2020 proporciona varias recomendaciones clave para mejorar la eficiencia energética en edificios comerciales y públicos en México. Éstas incluyen:
+
+1. Mejorar la eficiencia de la iluminación mediante el uso de tecnología LED y estrategias de iluminación natural.
+2. Optimizar los sistemas de aire acondicionado mediante el uso de equipos de alta eficiencia e implementar programas de mantenimiento.
+3. Reducir la carga de enchufes mediante el uso de equipos de oficina energéticamente eficientes y la implementación de estrategias de administración de energía.
+4. Implementar sistemas de automatización de edificios para optimizar el uso de energía y reducir el desperdicio.
+5. Realizar auditorías energéticas y evaluaciones comparativas para identificar áreas de mejora y realizar un seguimiento del progreso a lo largo del tiempo.
+6. Desarrollar códigos y estándares de eficiencia energética para edificios no residenciales para promover las mejores prácticas y fomentar la innovación.
+7. Proporcionar incentivos y opciones de financiación para que los propietarios y operadores de edificios inviertan en medidas de eficiencia energética.
+
+Al implementar estas recomendaciones, los edificios comerciales y públicos en México pueden reducir su consumo de energía, disminuir sus costos operativos y contribuir a un entorno construido más sustentable y resiliente.
+
+El principal desafío que enfrentan los edificios no residenciales en México en materia de eficiencia energética es su uso intensivo de electricidad. Si bien el uso de calefacción de espacios y calentamiento de agua es moderado en edificios no residenciales debido al clima templado o cálido de México, el uso de electricidad es alto. Esto presenta importantes oportunidades para reducir costos, insumos de combustible y emisiones de gases de efecto invernadero, pero también requiere esfuerzos específicos para mejorar la eficiencia energética en este sector. El archivo PDF proporciona información sobre la demanda de electricidad de edificios no residenciales en México e identifica áreas clave para mejorar, como iluminación, aire acondicionado y equipos de oficina.
+
+El artículo proporciona varios datos sobre el consumo eléctrico en México, incluyendo:
+
+- Según datos de la OCDE de 2019, el sector de servicios en México representó casi el 65% del tamaño de la economía en 2016 .
+- México es el país en el que el sector de servicios tiene el porcentaje más bajo en consumo de electricidad entre las "economías similares". Los datos muestran que, en comparación con otros países, en México habría entre un 60% y más del 200% menos de consumo de electricidad en el sector de servicios .
+- El consumo total de electricidad en México en 2017 fue de 64.3 TWh, de los cuales el sector de servicios representó el 37% .
+- El consumo de electricidad en edificios no residenciales en México en 2017 fue de 28.5 TWh, lo que representa el 44% del consumo total de electricidad en el sector de servicios .
+- El consumo de electricidad en edificios no residenciales en México se distribuye de la siguiente manera: 38% en iluminación, 33% en aire acondicionado, 18% en equipos de oficina y 11% en otros usos .
+
+
+//////////////////////////////////////
+
+@Rincon2019 examinó la neutralidad térmica y los rangos de confort en Pachuca, Hidalgo. Este estudio se centró en variables controladas, como la temperatura del aire seco, la humedad relativa y la velocidad del viento. Los resultados proporcionaron datos cruciales sobre las preferencias térmicas y los rangos de confort en esta región.
+
+@Cetz2018 llevó a cabo un extenso estudio en México, con una muestra significativa de 255 participantes. Sus mediciones incluyeron parámetros ambientales como la temperatura del aire, la temperatura radiante media y la velocidad del viento. Este estudio destacó las temperaturas preferidas y aceptables en aulas con ventilación natural y aire acondicionado.
+
+@MayTzuc2023 se enfocó en Campeche, México, explorando las variables de adaptación en el contexto del modelo de confort adaptativo. Aunque el número de participantes no se especifica, el estudio abordó el consumo de energía en relación con el confort térmico.
+
+@Oropeza2017 investigó los límites de la temperatura del aire interior para la refrigeración pasiva, así como la comodidad máxima con métodos pasivos. Este estudio, centrado en México, abordó la relación entre la temperatura, la sensación de incomodidad y la minimización del consumo energético.
+
+@Rincon2020 se centró en Ensenada, Baja California, analizando variables ambientales simultáneamente con la aplicación de cuestionarios. El estudio incluyó la temperatura del aire seco, la humedad relativa y la velocidad del viento, proporcionando una comprensión detallada del confort térmico en esta región.
+
+@Becerra2016 llevó a cabo un estudio a gran escala con aproximadamente 1800 participantes en México. Este abordó diversas variables, como la temperatura del aire, la temperatura de globo negro, la velocidad del viento y la humedad relativa. Los resultados contribuyeron a comprender las condiciones térmicas en diferentes tipologías de viviendas.
+
+@LópezPérez2019 se enfocó en Tuxtla Gutiérrez, Chiapas, analizando la percepción de confort térmico de los ocupantes en modo de aire acondicionado y ventilación natural. Este estudio incluyó mediciones de temperatura del aire, temperatura del globo, humedad relativa y velocidad del aire.
+
+@Zepeda2022 El estudio de confort térmico en la meseta central mexicana realizado por expertos, como se describe en ASHRAE 55, abordó las seis variables esenciales para el cálculo del estándar: temperatura del aire, temperatura radiante, velocidad del aire, humedad relativa, tasa metabólica y aislamiento térmico de la ropa.
+
+
+
+***Variables fisiológicas***
+
+**Estimation of Thermal Sensation Based on Wrist Skin Temperatures**
+
+Toman mediciones de la temperatura de la piel en 4 puntos (parte superior de la muñeca, arteria radial, arteria ulnar y punta del dedo índice). Por cuestiones de ergonomía y practicidad en nuestro caso descartaremos la temperatura en la punta del dedo índice. Tras la comparación de relación entre las temperaturas medidas y encuestas de sensación térmica, obtuvieron que al combinar las 3 mediciones de la muñeca se obtenían mejores resultados con una mayor correlación pearson (0.81) respecto a los votos de sensación térmica. Sin embargo, no es una diferencia tan grande respecto a las correlaciones de los puntos individuales. Los resultados de las mediciones en la parte superior de la muñeca, como en la arteria radial son iguales (0.76). Así que por cuestiones de practicidad es conveniente realizar la medición en la parte superior de la muñeca. @Sim2016
+
+
+
+**Human physiology for personal thermal comfort-based HVAC control – A review** 
+
+Existen diferentes variables que pueden servir como indicadores de confort térmico. Las variables que hemos considerado utilizar (temperatura en la parte superior de la muñeca y frecuencia cardiaca) parecen ser buenos indicadores según estudios previos, sobre todo el análisis de su variabilidad. La medición de la temperatura de la piel es muy comúnmente utilizada por su facilidad de ser capturada y porque puede ser de mucha utilidad. Indicadores como la sudoración quizás no resulten tan favorables, además de la dificultad que implica hacer la medición. @Bogatu2023
+
+**Thermal discomfort in the workplace: measurement through the combined use of wearable sensors and machine learning algorithms** 
+
+Este trabajo se enfoca en monitorear señales fisiológicas como el electrocardiograma, el electroencefalograma y la actividad electrodérmica, para evaluar el confort térmico en distintas condiciones. Utilizaron sensores portátiles (Empatica E4 e Interaxon MUSE). Implementaron algoritmos de machine learning para analizar los resultados y hacer modelos de predicción de confort térmico. Los resultados indican un aumento en las densidades de espectro de potencia (PSD) en las bandas alfa y theta. Por el contrario, en disconfort existe una disminución en las ondas beta y gamma. @Mansi2022
+
+
+**Personal thermal comfort models with wearable sensors**
+
+En este trabajo midieron diferentes variables en un ambiente controlado, tales como: temperatura del aire, humedad relativa, velocidad del aire, temperatura en la superficie del asiento, frecuencia cardiaca, temperatura de la piel (en el tobillo y en la muñeca), temperatura del aire cercana al tobillo. Encontraron que la temperatura de la piel medida en el tobillo es más predictiva que la medida en la muñeca. Incentivaron económicamente a los participantes para hacer más largo el experimento y responder más encuestas. @Liu2019
+
+**Random forest based thermal comfort prediction from gender-speciﬁc physiological parameters using wearable sensing technology**
+
+Realizaron un experimento en 20 participantes, 10 hombres y 10 mujeres durantes dos meses realizando encuestas de confort térmico y midiendo las siguientes variables: temperatura del aire, humedad relativa, velocidad del aire, temperatura de globo, temperatura de la piel, conductancia de la piel, frecuencia cardiaca, saturación de oxígeno en la sangre y presión arterial. La medición de la temperatura de la piel la llevan a cabo en la parte posterior de la mano por el fácil acceso a las arterias radial y ulnar. Al mismo tiempo las mediciones las llevaron a cabo en la mano no dominante. @Chaudhuri2018
+
+**Study of data-driven thermal sensation prediction model as a function of local body skin temperatures in a built environment**
+
+Este estudio encontró que medir la temperatura de la piel en varios puntos (frente, brazo, cuello, parte superior de la muñeca, parte inferior de la muñeca, espalda) y aplicar algoritmos de árbol de decisiones para relacionar las temperaturas brinda mejores resultados. El mejor resultado se obtuvo de la combinación de la temperatura de la piel en la cintura, la temperatura de la piel en el brazo y la tasa de cambio de la temperatura de la piel de la parte interior de la muñeca. @Choi2017
+
+
+**A novel theoretical model for predicting the individuals' thermal sensations based on air temperature and biomarkers measured by wearable devices**
+
+Proponen un modelo matemático que utiliza la temperatura de la piel, la frecuencia cardiaca y la temperatura del aire para predecir las sensaciones térmicas individuales. Dicho modelo se basa en la teoría fisiológica de que la percepción de la temperatura corporal está influenciada por la temperatura del aire y la temperatura de la piel que a su vez está influenciada por la tasa metabólica y la circulación de la sangre. @Omidvar2023
+
+
+**Prediction of individual thermal comfort based on ensemble transfer learning method using wearable and environmental sensors**
+
+
+Destacan que el modelo híbrido CNN-SVM demostró un impresionante rendimiento con una precisión y puntuación F1 del 95% para el sujeto B. Además, aplicaron con éxito un método de transferencia de aprendizaje para predecir la comodidad térmica de los sujetos A y C, superando al modelo CNN-SVM en términos de rendimiento. @Park2022
+
+
+**Machine learning driven personal comfort prediction by wearable sensing of pulse rate and skin temperature**
+
+
+Este artículo presenta un método mejorado de predicción del índice de estado térmico (TSI) personal, llamado método ePTS, para predecir el confort térmico de los ocupantes de edificios. El método utiliza la temperatura de la piel de la mano, la frecuencia cardíaca (pulso) y la temperatura ambiente para predecir el TSI. Utilizan la plataforma e-Health sensor. @Chaudhuri2020
+
+**Towards wearable thermal comfort assessment framework by analysis of heart rate variability**
+
+
+Este artículo propone un nuevo enfoque para evaluar el confort térmico en tiempo real utilizando la variabilidad de la frecuencia cardíaca. Se demuestra que al combinar diferentes características de la frecuencia cardíaca, se puede predecir de manera precisa el confort térmico personal. @Wang2022
+
+
+
+
+
+///////////////////////////////////////////////////////////
+
+
+
+**Field studies on human thermal comfort — An overview**
+
+Este trabajo aborda estudios sobre el confort térmico en diversos climas, utilizan la división de climas de Köppen-Geiger. Destaca la diferencia entre edificios con aire acondicionado y edificios naturales en términos de zonas de confort. Mencionan que más del 20% de los ocupantes se sienten incómodos en ambientes con ventilación natural, a pesar de cumplir con estándares de comodidad. También resalta el uso de la running mean temperature como indicador para el confort térmico. @Mishra2013
+
+
+
+
+> 
+
+
+> ***Wearables en el confort térmico***
+
+
+**Learning occupants workplace interactions from wearable and stationary ambient sensing systems**
+
+Experimento en el que se monitorizaron 231 participantes durante tres días seguidos en un entorno de oficina (controlado). Se midieron variables como sonido, CO2, intensidad lumínica, temperatura del aire, humedad relativa y presión atmosférica. Los resultados obtenidos muestran que la tecnología de detección ambiental puede ser una herramienta valiosa para mejorar la eficiencia energética de los edificios y mejorar la comodidad de los ocupantes. @Ghahramani2018
+
+**Design and Calibration of Low Cost Sensor Node for Thermal Comfort Estimation**
+
+
+En este estudio se implementaron unos dispositivos de bajo costo que permitieron la medición de la calidad del aire y confort térmico en edificaciones. Emplearon los índices PMV y PPD para evaluar la percepción de confort. Midieron con cada nodo sensor la temperatura del aire, la humedad relativa, la velocidad del aire, y la temperatura radiante media, comparando los resultados de las mediciones con un dispositivo Testo 480. Los resultados obtenidos muestran que es posible determinar el confort térmico midiendo la temperatura y la humedad. @Garces2021
+
+**Wireless, AI-enabled wearable thermal comfort sensor for energy-efficient, human-in-the-loop control of indoor temperature** 
+
+Mencionan que el uso de 3 sensores de temperatura brinda una mejor precisión que utilizar tan solo 1. Esto lo deciden basándose en el artículo anterior, más no mencionan que ellos lo hayan comprobado. Este artículo me es útil porque utilizan termistores montados sobre una banda elástica y maleable, brindan fotografías de las mismas y un pequeño diagrama de su funcionamiento. Esto puede ser útil para la colocación del termistor a utilizar en el dispositivo. @Cho2023
+
+**Project Coolbit: can your watch predict heat stress and thermal comfort sensation?**
+
+Utilizan un wearable (fitbit) y hacen experimentación tanto en una cámara controlada, como en un ambiente exterior no controlado. Encontraron que la temperatura corporal puede ser predecida utilizando la frecuencia cardíaca, la temperatura de la piel y la temperatura del aire en la muñeca. @Nazarian2021
+
+**Personal comfort models based on a 6-month experiment using environmental parameters and data from wearables**
+
+En este estudio implementaron el uso de un reloj fitbit con sensores Ibutton y usaron la aplicación Cozie para realizar encuestas de confort térmico realizaron demuestran como un experimento muy prolongado que involucre encuestas de confort térmico puede volverse tedioso y pesado para los usuarios. Implementaron un método que ellos llamaron micro-EMA para recopilar datos durante periodos prolongados de tiempo. @Tartarini2022
+
+**Long-Term Thermal Comfort Monitoring via Wearable Sensing Techniques: Correlation between Environmental Metrics and Subjective Perception**
+
+El artículo presenta una nueva metodología para investigar la correlación entre el Voto de Sensación Térmica (TSV) diario de los individuos y la exposición ambiental. El objetivo es desarrollar modelos de confort personalizados maximizando el bienestar de los ocupantes y minimizando el consumo de energía.
+
+Estudio a largo plazo en el que capacitaron a los usuarios para usar los sensores iButton por sí mismos, facilitando la implementación de las encuestas de confort térmico y el estudio en sí. @Vero2023
+
+**Monitoring and Predicting Occupant's Sleep Quality by Using Wearable Device OURA Ring and Smart Building Sensors Data (Living Laboratory Case Study)**
+
+
+Este artículo presenta un proyecto que almacena datos de gasto energético en una base de datos. Se apoyaron del dispositivo OURA Ring para monitorear el sueño de los usuarios y se desarrolló un modelo de red neuronal para mejorar la calidad del sueño. En conjunto, los datos recopilados y el modelo ofrecen buenos resultados para evaluar y mejorar la calidad del sueño de los usuarios. @Malakhatka2021
+
+**Wearable Sweat Rate Sensors for Human Thermal Comfort Monitoring**
+
+
+Desarrollaron un dispositivo wearable para medir la tasa de sudor de la piel a través de una cámara de humedad y sensores de humedad. Mencionan que el estado térmico humano puede ser medido a través del sudor. @Sim2018
+
+
+**Alert-based wearable sensing system for individualized thermal preference prediction**
+
+Desarrollaron una base de datos y una interfaz para ver los datos medidos en tiempo real. planean implementar un control de HVAC a través de su dispositivo de manera automática. El estudio se realizó solo en dos personas y desarrollaron modelos de confort térmico personalizados. Midieron variables como: la temperatura del aire, la humedad relativa, el nivel de luz, la frecuencia cardiaca, la conductancia eléctrica de la piel, la temperatura de la piel y la actividad basada en el movimiento. @Feng2023
+
+**Evaluating the comfort of thermally dynamic wearable devices**
+
+ El dispositivo aplica ondas de enfriamiento o calentamiento en la muñeca y ha demostrado un efecto correctivo de hasta 2.5 °C en 3 minutos. Usan el wearable para ayudar a mejorar el confort térmico utilizando ondas de calor o frío para estimular los receptores de temperatura de la piel. @Wang2020
+
+ **Sensitivity study for the PMV thermal comfort model and the use of wearable devices biometric data for metabolic rate estimation**
+
+Determinaron que la tasa metabólica y la ropa tienen un gran impacto en el modelo PMV, pero son difíciles de medir, por lo que con el uso de un Fitbit estimaron la tasa metabólica a través del acelerómetro del dispositivo. @Hasan2016

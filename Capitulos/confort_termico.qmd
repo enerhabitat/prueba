@@ -1,0 +1,18 @@
+# Marco teórico
+
+-- Aquí van todos los antecedentes de confort térmico, ya están en el archivo estado.qmd --
+
+
+###### Sensores de temperatura
+
+Los sensores de temperatura se clasifican en dos tipos principales: sensores de contacto y sensores sin contacto. Los sensores de contacto, a su vez, se subdividen en tres categorías según su método de medición:
+
+***Termopares***:Utilizan el efecto Seebeck para generar una voltaje por la unión de dos metales diferentes.
+
+***Termistores***: Son resistores sensibles a la temperatura, cuya resistencia eléctrica varía en función de los cambios de temperatura. Están fabricados con materiales cerámicos o poliméricos. Existen dos tipos principales: los NTC (coeficiente de temperatura negativo) y los PTC (coeficiente de temperatura positivo).
+
+***Detectores de temperatura de resistencia (RTD)***: Utilizan metales puros, como el platino, para medir la temperatura a través de la variación lineal y predecible de su resistencia eléctrica.
+
+Por otro lado, los sensores sin contacto incluyen los sensores infrarrojos, diseñados para detectar la radiación infrarroja emitida por un objeto a distancia.
+
+En el sector de la salud, los termistores son ampliamente utilizados debido a su alta precisión en los rangos de temperatura corporal y su rápida respuesta a los cambios de temperatura. Sin embargo, a raíz de la pandemia de COVID-19 en 2020, el uso de sensores infrarrojos se populariza considerablemente. Esto ha impulsado avances en su tecnología, lo que los hace cada vez más comunes para medir la temperatura corporal.

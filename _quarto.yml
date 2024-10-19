@@ -1,0 +1,45 @@
+project:
+  type: book
+  output-dir: docs
+
+
+book:
+  title: "Reloj inteligente IoT basado en tecnologías abiertas para la recopilación de datos de confort térmico
+"
+  output-file: "Tesis"
+  author: "Julio César Landa López"
+  date: "10/10/2024"
+  language: "es"
+
+  comments:
+    hypothesis:
+      theme: classic
+
+  chapters:
+    - index.qmd
+    - Capitulos/intro.qmd
+    - Capitulos/confort_termico.qmd
+    - Capitulos/desarrollo.qmd
+    - Capitulos/resultados.qmd
+    - Capitulos/references.qmd
+
+bibliography: Referencias/references.bib
+biblio-style: plain
+
+lang: es
+language: 
+  title-block-author-single: "Autor"
+format:
+  html:
+    theme: zephyr
+    smooth-scroll: true
+    comments:
+      hypothesis: 
+        theme: clean
+    minimal: true
+  pdf:
+    documentclass: scrreport
+    lof: true
+    lot: true
+    
+

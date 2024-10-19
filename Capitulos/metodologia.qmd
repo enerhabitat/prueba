@@ -1,0 +1,21 @@
+# Metodología 
+
+Aquí se describe cual fue la metodología a seguir para desarrollar el proyecto
+
+
+**Emisividad de la piel**
+
+La emisividad de la piel puede variar dependiendo muchos factores, por lo que es difícil obtener un valor exacto. @Steketee_1973 reportó una emisividad aproximada de 0.98 con un margen de error $\pm$ 0.01, mientras que @Boylan_1992 obtuvieron un valor de 0.961 con un margen de error de $\pm$ 0.007. Tras varias pruebas con el sensor, se optó por usar una emisividad de ...
+
+## Elección de variables y sensores
+
+## Elección de hardware y software 
+
+
+## Diseño del primer prototipo de wearable
+
+## Diseño de encuesta de confort térmico en wearable 
+
+De las encuestas de confort existentes, que se va a tomar y como se va adaptar al dispositivo
+
+## Documentación del prototipo 
